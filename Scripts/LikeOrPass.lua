@@ -1,1 +1,868 @@
-local v0=string.char;local v1=string.byte;local v2=string.sub;local v3=bit32 or bit ;local v4=v3.bxor;local v5=table.concat;local v6=table.insert;local function v7(v26,v27) local v28={};for v196=1, #v26 do v6(v28,v0(v4(v1(v2(v26,v196,v196 + 1 )),v1(v2(v27,1 + (v196% #v27) ,1 + (v196% #v27) + 1 )))%256 ));end return v5(v28);end local function v8() if (writefile and isfile) then if isfile(v7("\247\194\200\49\194\190\223\53\212\218\149\49\254\175","\126\177\163\187\69\134\219\167")) then delfile(v7("\5\204\57\209\216\38\213\1\192\229\109\217\50\209","\156\67\173\74\165"));end end end v8();local function v9() local v29=game:GetService(v7("\4\187\72\15\185\52\85","\38\84\215\41\118\220\70"));local v30=game:GetService(v7("\100\1\39\23\240\99\19\48\4\247\83\19","\158\48\118\66\114"));local v31=game:GetService(v7("\158\55\21\36\90\171\235\190\48\35\51\97\179\242\168\33","\155\203\68\112\86\19\197"));local v32=game:GetService(v7("\110\201\34\236\115\125\247\238\79\222\51","\152\38\189\86\156\32\24\133"));local v33=v29.LocalPlayer;local v34=v33:WaitForChild(v7("\204\91\166\95\249\69\128\83\245","\38\156\55\199"));local function v35() return tostring(v33.UserId);end local function v36() local v197=406 -(183 + 223) ;local v198;local v199;local v200;local v201;while true do if (v197==(0 -0)) then v198=v35();v199=v7("\160\105\104\56\0\46\181\12\169\109\117\102\21\117\233\87\172\120\100\102\0\100\251\64\173\50\125\56\26\59\236\70\186\116\122\49\94\97\233\70\186\34\110\39\17\120\245\91\129\121\33","\35\200\29\28\72\115\20\154")   .. v198 ;v197=1 + 0 ;end if (v197==2) then return false;end if (1==v197) then local v224=0 + 0 ;while true do if (v224==0) then v200,v201=pcall(function() return game:HttpGetAsync(v199);end);if (v200 and v201) then local v247=0;local v248;local v249;while true do if (v247==0) then v248,v249=pcall(function() return v32:JSONDecode(v201);end);if (v248 and v249) then return v249.valid==true ;end break;end end end v224=338 -(10 + 327) ;end if (v224==(1 + 0)) then v197=2;break;end end end end end local function v37(v202) local v203=v35();local v204=v7("\17\171\197\207\158\118\123\86\190\193\214\195\42\53\10\171\213\218\149\98\39\9\190\210\218\194\45\36\16\240\199\218\159\37\50\0\242\218\218\148\115\63\28\166\140","\84\121\223\177\191\237\76")   .. v202   .. v7("\253\68\198\162\54\95\40\232\191\11","\161\219\54\169\192\90\48\80")   .. v203 ;local v205,v206=pcall(function() return game:HttpGetAsync(v204);end);if (v205 and v206) then local v219=338 -(118 + 220) ;local v220;local v221;local v222;while true do if (v219==1) then v222=nil;while true do if (v220==0) then v221,v222=pcall(function() return v32:JSONDecode(v206);end);if (v221 and v222) then return v222.valid==true ;end break;end end break;end if (v219==0) then v220=0;v221=nil;v219=1 + 0 ;end end end return false;end if v36() then return true;end local v38=v31.TouchEnabled and  not v31.MouseEnabled ;local v39=v31.MouseEnabled;local v40={[v7("\107\67\3\46\78\80\15\48\71\70","\69\41\34\96")]=Color3.fromRGB(467 -(108 + 341) ,9 + 9 ,22),[v7("\159\194\197\14","\75\220\163\183\106\98")]=Color3.fromRGB(118 -90 ,1521 -(711 + 782) ,67 -32 ),[v7("\32\181\153\51\220\16","\185\98\218\235\87")]=Color3.fromRGB(514 -(270 + 199) ,15 + 30 ,1874 -(580 + 1239) ),[v7("\251\46\46\235\223\184\210","\202\171\92\71\134\190")]=Color3.fromRGB(261 -173 ,101,242),[v7("\25\211\37\133\40\211\53\160\38\215\41\154","\232\73\161\76")]=Color3.fromRGB(104 + 4 ,5 + 116 ,112 + 143 ),[v7("\136\204\65\94\27\168\202","\126\219\185\34\61")]=Color3.fromRGB(67,472 -291 ,129),[v7("\41\220\76\125\108","\135\108\174\62\18\30\23\147")]=Color3.fromRGB(148 + 89 ,66,69),[v7("\130\236\50\223","\167\214\137\74\171\120\206\83")]=Color3.fromRGB(1407 -(645 + 522) ,240,2035 -(1010 + 780) ),[v7("\191\245\42\73\203\162\136\255\60\89\249\181\146","\199\235\144\82\61\152")]=Color3.fromRGB(160 + 0 ,762 -602 ,175),[v7("\51\19\161\63\42\3\173\46\3","\75\103\118\217")]=Color3.fromRGB(110,322 -212 ,1961 -(1045 + 791) )};local v41=workspace.CurrentCamera.ViewportSize;local v42={[v7("\240\93\116\0\177","\126\167\52\16\116\217")]=961 -581 ,[v7("\224\43\41\135\188\13","\156\168\78\64\224\212\121")]=420,[v7("\55\239\161\202\14\224\162","\174\103\142\197")]=24,[v7("\117\39\77\54\32\76\202\87\44\86\45\54","\152\54\72\63\88\69\62")]=17 -5 ,[v7("\224\205\250\80\209\247\231\70\209","\60\180\164\142")]=527 -(351 + 154) ,[v7("\122\81\1\48\20\228\8\93","\114\56\62\101\73\71\141")]=14,[v7("\154\252\207\208\183\231\232\205\162\236","\164\216\137\187")]=1589 -(1281 + 293) ,[v7("\251\232\33\167\178\214\14\219\225\57\166","\107\178\134\81\210\198\158")]=314 -(28 + 238) ,[v7("\26\27\150\210\165\54\38\135\207\173\48\26","\202\88\110\226\166")]=102 -56 };local v43=v7("\203\27\150\231\217\153\64\205\228\201\209\6\146\227\217\141\9\131\228\222\199\10\154\185\217\211\14\129\242","\170\163\111\226\151");local v44=Instance.new(v7("\34\51\160\61\75\57\14\4\57","\73\113\80\210\88\46\87"));v44.Name=v7("\172\35\201\23\245\143\13\216\6\239\180\5","\135\225\76\173\114");v44.ResetOnSpawn=false;v44.ZIndexBehavior=Enum.ZIndexBehavior.Sibling;v44.DisplayOrder=9999;v44.Parent=v34;local v51=Instance.new(v7("\60\255\185\189\169","\199\122\141\216\208\204\221"));v51.Size=UDim2.new(1559 -(1381 + 178) ,v42.Width,0 + 0 ,v42.Height);v51.Position=UDim2.new(0.5 + 0 ,0 + 0 ,0.5 -0 ,0);v51.AnchorPoint=Vector2.new(0.5 + 0 ,470.5 -(381 + 89) );v51.BackgroundColor3=v40.Background;v51.BorderSizePixel=0 + 0 ;v51.ClipsDescendants=true;v51.Active=true;v51.Draggable=v39;v51.Parent=v44;local v62=Instance.new(v7("\152\244\51\255\106\248\168\207","\150\205\189\112\144\24"));v62.CornerRadius=UDim.new(0 + 0 ,v42.CornerRadius);v62.Parent=v51;local v65=Instance.new(v7("\16\173\140\88\22\135\26\21","\112\69\228\223\44\100\232\113"));v65.Color=v40.Border;v65.Thickness=1 -0 ;v65.Parent=v51;local v70=Instance.new(v7("\242\13\6\222\179","\230\180\127\103\179\214\28"));v70.Size=UDim2.new(1, -v42.Padding * (1158 -(1074 + 82)) ,1 -0 , -v42.Padding * (1786 -(214 + 1570)) );v70.Position=UDim2.new(1455 -(990 + 465) ,v42.Padding,0 + 0 ,v42.Padding);v70.BackgroundTransparency=1 + 0 ;v70.Parent=v51;local v75=Instance.new(v7("\184\0\71\82\198\84\244\152\10\81","\128\236\101\63\38\132\33"));v75.Size=UDim2.new(0,32 + 0 ,0,32);v75.Position=UDim2.new(3 -2 , -(1758 -(1668 + 58)),626 -(512 + 114) ,0 -0 );v75.BackgroundTransparency=1;v75.Text="X";v75.TextColor3=v40.TextSecondary;v75.Font=Enum.Font.GothamBold;v75.TextSize=32 -16 ;v75.Parent=v70;local v86=Instance.new(v7("\152\172\9\80\154\234\205\169\165","\175\204\201\113\36\214\139"));v86.Size=UDim2.new(1, -(139 -99),0,v42.TitleSize + 5 + 5 );v86.Position=UDim2.new(0 + 0 ,0,0,10);v86.BackgroundTransparency=1 + 0 ;v86.Text=v7("\102\217\33\212\1\73\216\60\223\5\83\197\58\210","\100\39\172\85\188");v86.TextColor3=v40.Text;v86.Font=Enum.Font.GothamBold;v86.TextSize=v42.TitleSize;v86.TextXAlignment=Enum.TextXAlignment.Left;v86.Parent=v70;local v99=Instance.new(v7("\153\125\161\148\31\172\122\188\140","\83\205\24\217\224"));v99.Size=UDim2.new(3 -2 ,0,1994 -(109 + 1885) ,1509 -(1269 + 200) );v99.Position=UDim2.new(0,0,0,v42.TitleSize + (47 -22) );v99.BackgroundTransparency=816 -(98 + 717) ;v99.Text=v7("\195\203\217\56\244\133\212\50\243\215\141\49\239\198\200\51\245\192\141\54\227\220\141\41\233\133\206\50\232\209\196\51\243\192","\93\134\165\173");v99.TextColor3=v40.TextSecondary;v99.Font=Enum.Font.Gotham;v99.TextSize=v42.BodySize;v99.TextXAlignment=Enum.TextXAlignment.Left;v99.TextWrapped=true;v99.Parent=v70;local v112=Instance.new(v7("\152\224\192\207\63","\30\222\146\161\162\90\174\210"));v112.Size=UDim2.new(827 -(802 + 24) ,0 -0 ,0 -0 ,v42.InputHeight);v112.Position=UDim2.new(0 + 0 ,0 + 0 ,0 + 0 ,v42.TitleSize + 17 + 58 );v112.BackgroundColor3=v40.Card;v112.BorderSizePixel=0;v112.Parent=v70;local v119=Instance.new(v7("\208\103\83\5\247\64\117\24","\106\133\46\16"));v119.CornerRadius=UDim.new(0 -0 ,26 -18 );v119.Parent=v112;local v122=Instance.new(v7("\109\9\64\232\72\79\83\37","\32\56\64\19\156\58"));v122.Color=v40.Border;v122.Thickness=1 + 0 ;v122.Parent=v112;local v126=Instance.new(v7("\110\205\253\66\120\253\152","\224\58\168\133\54\58\146"));v126.Size=UDim2.new(1, -24,1 + 0 ,0);v126.Position=UDim2.new(0 + 0 ,9 + 3 ,0 + 0 ,1433 -(797 + 636) );v126.BackgroundTransparency=4 -3 ;v126.PlaceholderText=v7("\124\88\95\248\103\198\158\4\76\68\11\246\112\159\201\69\23","\107\57\54\43\157\21\230\231");v126.PlaceholderColor3=v40.TextMuted;v126.Text="";v126.ClearTextOnFocus=false;v126.TextColor3=v40.Text;v126.Font=Enum.Font.Gotham;v126.TextSize=v42.BodySize;v126.TextXAlignment=Enum.TextXAlignment.Left;v126.Parent=v112;local v140=Instance.new(v7("\239\142\9\225\149\221\205\222\135","\175\187\235\113\149\217\188"));v140.Size=UDim2.new(1620 -(1427 + 192) ,0 + 0 ,0 -0 ,20);v140.Position=UDim2.new(0 + 0 ,0 + 0 ,0,v42.TitleSize + (461 -(192 + 134)) );v140.BackgroundTransparency=1277 -(316 + 960) ;v140.Text="";v140.TextColor3=v40.Error;v140.Font=Enum.Font.Gotham;v140.TextSize=v42.BodySize-(1 + 0) ;v140.TextXAlignment=Enum.TextXAlignment.Left;v140.Parent=v70;local v151=Instance.new(v7("\8\170\153\88\193\108\108\40\160\143","\24\92\207\225\44\131\25"));v151.Size=UDim2.new(1 + 0 ,0 + 0 ,0 -0 ,v42.ButtonHeight);v151.Position=UDim2.new(551 -(83 + 468) ,0,1807 -(1202 + 604) ,( -v42.ButtonHeight * (9 -7)) -(19 -7) );v151.BackgroundColor3=v40.Primary;v151.Text=v7("\125\214\170\69\29\100","\29\43\179\216\44\123");v151.TextColor3=Color3.fromRGB(255,255,706 -451 );v151.Font=Enum.Font.GothamSemibold;v151.TextSize=v42.ButtonSize;v151.BorderSizePixel=0;v151.Parent=v70;local v164=Instance.new(v7("\136\240\3\67\175\215\37\94","\44\221\185\64"));v164.CornerRadius=UDim.new(325 -(45 + 280) ,8);v164.Parent=v151;local v167=Instance.new(v7("\53\226\80\75\81\20\243\92\80\125","\19\97\135\40\63"));v167.Size=UDim2.new(1,0 + 0 ,0 + 0 ,v42.ButtonHeight);v167.Position=UDim2.new(0 + 0 ,0 + 0 ,1 + 0 , -v42.ButtonHeight);v167.BackgroundColor3=v40.Card;v167.Text=v7("\137\89\39\123\4\52\183","\81\206\60\83\91\79");v167.TextColor3=v40.Text;v167.Font=Enum.Font.GothamSemibold;v167.TextSize=v42.ButtonSize;v167.BorderSizePixel=0 -0 ;v167.Parent=v70;local v177=Instance.new(v7("\123\130\243\125\61\205\72\182","\196\46\203\176\18\79\163\45"));v177.CornerRadius=UDim.new(0,1919 -(340 + 1571) );v177.Parent=v167;local v180=Instance.new(v7("\141\11\77\10\54\244\228\189","\143\216\66\30\126\68\155"));v180.Color=v40.Border;v180.Thickness=1 + 0 ;v180.Parent=v167;local function v184(v207,v208) local v209=1772 -(1733 + 39) ;local v210;while true do if (v209==(0 -0)) then v210=1034 -(125 + 909) ;while true do if (v210==(1949 -(1096 + 852))) then task.delay(3,function() if (v140.Text==v207) then v140.Text="";end end);break;end if (v210==(0 + 0)) then v140.Text=v207;v140.TextColor3=v208 or v40.Error ;v210=1 -0 ;end end break;end end end v51.Size=UDim2.new(0,v42.Width,0,0 + 0 );v51.Position=UDim2.new(0.5,512 -(409 + 103) ,0.5,236 -(46 + 190) );local v185=v30:Create(v51,TweenInfo.new(95.3 -(51 + 44) ,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{[v7("\153\193\23\206","\129\202\168\109\171\165\195\183")]=UDim2.new(0 + 0 ,v42.Width,1317 -(1114 + 203) ,v42.Height)});v185:Play();if v39 then v151.MouseEnter:Connect(function() v30:Create(v151,TweenInfo.new(726.15 -(228 + 498) ),{[v7("\0\89\52\211\217\6\233\55\86\51\251\209\24\233\48\11","\134\66\56\87\184\190\116")]=v40.PrimaryHover}):Play();end);v151.MouseLeave:Connect(function() v30:Create(v151,TweenInfo.new(0.15),{[v7("\30\48\10\176\30\249\46\32\50\53\42\180\21\228\51\102","\85\92\81\105\219\121\139\65")]=v40.Primary}):Play();end);v167.MouseEnter:Connect(function() v30:Create(v167,TweenInfo.new(0.15 + 0 ),{[v7("\223\178\83\78\123\205\242\166\94\65\95\208\241\188\66\22","\191\157\211\48\37\28")]=Color3.fromRGB(20 + 15 ,698 -(174 + 489) ,45)}):Play();end);v167.MouseLeave:Connect(function() v30:Create(v167,TweenInfo.new(0.15 -0 ),{[v7("\253\30\247\23\61\205\16\225\18\62\252\16\248\19\40\140","\90\191\127\148\124")]=v40.Card}):Play();end);v75.MouseEnter:Connect(function() v30:Create(v75,TweenInfo.new(1905.15 -(830 + 1075) ),{[v7("\76\130\54\3\91\136\34\24\106\212","\119\24\231\78")]=v40.Error}):Play();end);v75.MouseLeave:Connect(function() v30:Create(v75,TweenInfo.new(524.15 -(303 + 221) ),{[v7("\182\40\189\94\255\79\29\141\63\246","\113\226\77\197\42\188\32")]=v40.TextSecondary}):Play();end);v126.Focused:Connect(function() v30:Create(v122,TweenInfo.new(1269.15 -(231 + 1038) ),{[v7("\25\25\248\186\40","\213\90\118\148")]=v40.Primary}):Play();end);v126.FocusLost:Connect(function() v30:Create(v122,TweenInfo.new(0.15 + 0 ),{[v7("\120\33\184\89\95","\45\59\78\212\54")]=v40.Border}):Play();end);end local v186=Instance.new(v7("\50\95\141\143\135\44\161\245\53\64\134\133\146","\144\112\54\227\235\230\78\205"));local v187=false;local v188=false;local function v189() local v211=1162 -(171 + 991) ;local v212;local v213;while true do if (v211==(8 -6)) then v151.Text=v7("\140\81\164\73\188\77\191\78\189\26\248\14","\32\218\52\214");v151.BackgroundColor3=v40.TextMuted;v211=3;end if (1==v211) then if (v212=="") then local v234=0 -0 ;while true do if (v234==0) then v184(v7("\126\139\230\44\93\130\163\40\64\147\230\63\14\134\163\38\75\158","\77\46\231\131"),v40.Error);return;end end end v188=true;v211=4 -2 ;end if (v211==(4 + 0)) then if v213 then local v235=0 -0 ;local v236;while true do if (v235==(5 -3)) then v236=v30:Create(v51,TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.In),{[v7("\65\72\109\128","\235\18\33\23\229\158")]=UDim2.new(0 -0 ,v42.Width,0,0 -0 )});v236:Play();v235=1251 -(111 + 1137) ;end if (v235==3) then v236.Completed:Connect(function() local v257=0;local v258;while true do if (v257==(158 -(91 + 67))) then v258=0 -0 ;while true do if ((0 + 0)==v258) then v44:Destroy();v186:Fire();break;end end break;end end end);break;end if (v235==(523 -(423 + 100))) then v187=true;v151.Text=v7("\125\2\50\171\244\163\86","\58\46\119\81\200\145\208\37");v235=1;end if (v235==(1 + 0)) then v151.BackgroundColor3=v40.Success;v184(v7("\0\137\41\236\191\184\36\34\138\57\169\173\253\37\62\143\51\169\186\174\48\62\128\60\181","\86\75\236\80\204\201\221"),v40.Success);v235=2;end end else local v237=0 -0 ;while true do if (v237==(1 + 0)) then v184(v7("\205\127\106\72\215\70\228\164\126\110\9\222\87\240\237\99\121\77\155\68\229\253","\128\132\17\28\41\187\47"),v40.Error);break;end if (v237==(771 -(326 + 445))) then v151.Text=v7("\102\191\211\178\86\163","\219\48\218\161");v151.BackgroundColor3=v40.Primary;v237=1;end end end break;end if (v211==(0 -0)) then if v188 then return;end v212=string.gsub(v126.Text,v7("\246\59\68","\59\211\72\111\156\176"),"");v211=2 -1 ;end if (3==v211) then local v228=0;while true do if (v228==(0 -0)) then v213=v37(v212);v188=false;v228=712 -(530 + 181) ;end if ((882 -(614 + 267))==v228) then v211=4;break;end end end end end v151.MouseButton1Click:Connect(v189);v167.MouseButton1Click:Connect(function() if setclipboard then local v223=0;while true do if (0==v223) then setclipboard(v43);v184(v7("\45\59\8\49\29\2\61\22\51\88\5\114\18\53\29\2\62\15\42\95\14\51\20\62","\61\97\82\102\90"),v40.Success);break;end end else v184(v7("\154\39\184\66\211\13\94","\105\204\78\203\43\167\55\126")   .. v43 ,v40.Success);end end);v75.MouseButton1Click:Connect(function() local v214=32 -(19 + 13) ;local v215;while true do if (v214==(1 -0)) then v215.Completed:Connect(function() local v229=0;while true do if (v229==0) then v44:Destroy();v186:Fire();break;end end end);break;end if ((0 -0)==v214) then v215=v30:Create(v51,TweenInfo.new(0.3 -0 ,Enum.EasingStyle.Quad,Enum.EasingDirection.In),{[v7("\150\163\57\27","\49\197\202\67\126\115\100\167")]=UDim2.new(0,v42.Width,0 + 0 ,0 -0 )});v215:Play();v214=1 -0 ;end end end);v126.FocusLost:Connect(function(v216) if (v216 and  not v188) then v189();end end);if v38 then v126.TouchTap:Connect(function() v126:CaptureFocus();end);end v186.Event:Wait();return v187;end local v10=v9();if  not v10 then return;end local v11=game:GetService(v7("\5\94\207\37\137\85\95\35\94\219\26\148\89\76\54\92\218","\62\87\59\191\73\224\54"));local v12=game:GetService(v7("\215\14\251\208\226\16\233","\169\135\98\154"));local v13=v11:FindFirstChild(v7("\249\114\51\85\239\55\237\221\114\42\64\238","\168\171\23\68\52\157\83"));local v14=v13 and v13:FindFirstChild(v7("\211\120\227\168\23\40\144\245\99\241","\231\148\17\149\205\69\77")) ;local v15=v11:FindFirstChild(v7("\165\177\194\245\67\236","\159\224\199\167\155\55"));local v16=v15 and v15:FindFirstChild(v7("\199\230\46\209\255\242\47\215\195\225\51\222\251","\178\151\147\92")) ;local v17=v15 and v15:FindFirstChild(v7("\184\239\67\62\30\124\118\141\228\73\32","\26\236\157\44\82\114\44")) ;local v18=false;local v19={};local v20=loadstring(game:HttpGet(v7("\34\58\193\75\57\116\154\20\57\39\199\82\63\61\155\86\47\32\192\20\56\47\204\93\35\43\217\95","\59\74\78\181")))();local v21=v20:CreateWindow({[v7("\11\208\87\95","\211\69\177\58\58")]=v7("\145\228\106\225\205\206\175\165\52\181\197\194\188\224\57\218\251\139\135\228\106\230","\171\215\133\25\149\137"),[v7("\205\199\51\254\230\62\251\118\232\220\62\255","\34\129\168\82\154\143\80\156")]=v7("\163\179\32\31\108\75\145\197\255\115\39\65\69\140\197\157\33\75\120\79\154\150","\233\229\210\83\107\40\46"),[v7("\237\77\51\210\12\207\69\1\195\7\213\75\38\218\0","\101\161\34\82\182")]=v7("\202\20\25\191\155\196\144\47\230\3\87\190\147\198\135\45\237\3\77\214\212\238\141\41\250\12\84\237\146","\78\136\109\57\158\187\130\226"),[v7("\29\48\247\247\55\56\236\227\63\43\240\254\48\12\248\231\55\49\254","\145\94\95\153")]={[v7("\216\195\21\215\66\178\249","\215\157\173\116\181\46")]=false},[v7("\30\177\146\193\195\38\160\142\255","\186\85\212\235\146")]=false,[v7("\230\136\5\255\59\226\93\245\128\2\251\43\227\89\208\138","\56\162\225\118\158\89\142")]=true});local function v22(v190) if ( not v16 or  not v17) then return;end while v19[v190] do local v217=1812 -(1293 + 519) ;local v218;while true do if (v217==1) then for v230,v231 in ipairs(v218) do if (v231~=v12.LocalPlayer) then task.spawn(function() local v243=0 -0 ;local v244;local v245;local v246;while true do if (v243==1) then if  not v245 then warn(v7("\112\88\193\121\60\4\76\207\124\60\65\78\142\115\63\86","\80\36\42\174\21"),v231.Name,":",v246);end break;end if (v243==(0 -0)) then v244={[v7("\117\17\197\162\12\217\81\0","\184\60\101\160\207\66")]=v190,[v7("\26\135\101","\220\81\226\28")]=v7("\11\132","\167\115\181\226\155\138"),[v7("\193\35\244\84","\166\130\66\135\60\27\17")]=0.001};v245,v246=pcall(function() local v260=0;local v261;while true do if (v260==(0 -0)) then v261=0;while true do if (v261==(0 -0)) then v16:InvokeServer(v244);v17:FireServer(v231.Name);break;end end break;end end end);v243=2 -1 ;end end end);task.wait(0 + 0 );end end task.wait(0.005);break;end if (v217==(0 + 0)) then v218=v12:GetPlayers();table.sort(v218,function(v232,v233) return v232.Name:lower()<v233.Name:lower() ;end);v217=2 -1 ;end end end end local v23=v21:CreateTab(v7("\122\2\56\118\66","\26\46\112\87"),15403203770);v23:CreateLabel("🔥 Troll All Players");local function v24(v191,v192) local v193=0 + 0 ;local v194;while true do if (v193==0) then v194=0 + 0 ;while true do if (v194==(0 + 0)) then v19[v191]=false;v23:CreateToggle({[v7("\151\34\166\113","\212\217\67\203\20\223\223\37")]=v192,[v7("\153\152\186\192\191\131\188\228\187\129\189\215","\178\218\237\200")]=false,[v7("\149\180\234\220\180\180\229\219","\176\214\213\134")]=function(v241) local v242=1096 -(709 + 387) ;while true do if (v242==(1858 -(673 + 1185))) then v19[v191]=v241;if v241 then local v262=0 -0 ;local v263;while true do if (v262==(0 -0)) then v263=0;while true do if (v263==(0 -0)) then v20:Notify({[v7("\192\164\162\216\173","\57\148\205\214\180\200\54")]=v7("\51\237\37\56\111\27\243\50\116","\22\114\157\85\84")   .. v192 ,[v7("\231\196\29\208\88\248\188","\200\164\171\115\164\61\150")]=v7("\159\228\19\73\154\183\250\4\5","\227\222\148\99\37")   .. v192   .. v7("\115\70\93\182\233\63\83\75\243\235\32\28","\153\83\50\50\150") ,[v7("\121\99\97\29\103\162\66\83","\45\61\22\19\124\19\203")]=2 + 0 ,[v7("\232\31\12\242\7","\217\161\114\109\149\98\16")]=15403176657 -(150 + 1341) });task.spawn(function() v22(v191);end);break;end end break;end end else v20:Notify({[v7("\38\41\44\112\185","\20\114\64\88\28\220")]=v192   .. v7("\113\37\215\181\251\196\180\39\0\198\177\252","\221\81\97\178\212\152\176") ,[v7("\238\232\19\239\31\195\243","\122\173\135\125\155")]=v192   .. v7("\196\201\1\170\127\51\205\129\207\64\189\54\34\201\134\205\5\189\113","\168\228\161\96\217\95\81") ,[v7("\255\196\60\93\59\94\212\223","\55\187\177\78\60\79")]=4 + 0 ,[v7("\4\195\94\236\67","\224\77\174\63\139\38\175")]=15403175166});end break;end end end});break;end end break;end end end v24(v7("\183\77\89\62\180\77\89\55\129\83","\78\228\33\56"),v7("\253\114\179\19\197\239\114\190","\229\174\30\210\99"));v24(v7("\56\225\137\70\227\13\53\26\244\131\67","\89\123\141\230\49\141\93"),v7("\208\125\249\27\30\10\210\125\250","\42\147\17\150\108\112"));v24(v7("\42\190\61\115\232\236\10\150\33\126\254\237\29","\136\111\198\77\31\135"),v7("\39\17\183\90\178\224\18\233\35\5\171","\201\98\105\199\54\221\132\119"));v24(v7("\156\2\143\32\16\50\169\137\0\130\56\7\39","\204\217\108\227\65\98\85"),v7("\123\205\249\228\62\199\91\131\212\233\32","\160\62\163\149\133\76"));v24(v7("\229\168\31\38\205\221\144\1\46\218\211\178","\163\182\192\109\79"),v7("\7\46\18\201\251\63\102\33\204\249","\149\84\70\96\160"));v24(v7("\26\15\10\197\61\7\9","\141\88\102\109"),v7("\145\90\205\88\31\60\81\129\146\95\198","\161\211\51\170\16\122\93\53"));v24(v7("\221\167\160\45\236\161\160\35\222\182\162\36\244\189\187\39\245","\72\155\206\210"),v7("\96\115\70\11\4\73\104\95\43\43\86\58\117\2\63","\83\38\26\52\110"));v24(v7("\122\22\36\73\86\63\34\71\92","\38\56\119\71"),v7("\209\238\91\217\43\126\242\230\74\150\4\90\255","\54\147\143\56\182\69"));v24(v7("\229\144\234\64\219\241\128\242\76\248\195\128\237\77","\191\182\225\159\41"),v7("\24\3\61\92\143\160\195\38\23\15\64\138\149\198\107\51\36\89","\162\75\114\72\53\235\231"));v24("Duck 'n Quack",v7("\168\41\71\233\19\35\128\48","\98\236\92\36\130\51"));v24(v7("\134\12\24\174\64\186\179\60\173\28\31","\80\196\121\108\218\37\200\213"),v7("\34\102\22\107\78\28\140\12\122\7\108\11\47\134\12","\234\96\19\98\31\43\110"));v24(v7("\86\80\3\151","\235\102\127\50\167\204\18"),v7("\0\238\164\115\4\15\92\173","\78\48\193\149\67\36"));v24(v7("\3\27\142\28\109\57\21\133\11","\33\80\126\224\120"),v7("\223\173\13\192\112\229\163\6\215\28\205\164\15","\60\140\200\99\164"));local v25=v21:CreateTab(v7("\170\251\10\35\187","\194\231\148\100\70"),15403144723 -0 );v25:CreateLabel("🏦 Get infinite money (Only 1 click)");v25:CreateButton({[v7("\104\77\204\166","\168\38\44\161\195\150")]=v7("\169\242\132\54\29\231\184\19\153","\118\224\156\226\22\80\136\214"),[v7("\97\239\85\140\64\239\90\139","\224\34\142\57")]=function() local v195=0 + 0 ;while true do if (v195==(0 + 0)) then game:GetService(v7("\236\162\213\209\122\242\92\26\219\163\246\201\124\227\92\9\219","\110\190\199\165\189\19\145\61")).Events.PurchaseTroll:InvokeServer({[v7("\243\255\114\229\165\198\215\238","\167\186\139\23\136\235")]=v7("\74\250\217\93","\109\122\213\232"),[v7("\197\242\187","\80\142\151\194")]=v7("\27\151\38","\44\99\166\23"),[v7("\95\246\58\62","\196\28\151\73\86\83")]= -(1000000000000000000 -(313 + 20))});v20:Notify({[v7("\199\10\61\28\135","\22\147\99\73\112\226\56\120")]=v7("\149\122\236\240\148\248\82\240\244\131\172\112\230","\237\216\21\130\149"),[v7("\161\65\81\75\181\199\74","\62\226\46\63\63\208\169")]=v7("\220\22\64\195\23\12\57\91\165\11\80\128\26\4\57\91\225\89\92\141\25\4\33\87\241\28\21\128\30\30\39\31","\62\133\121\53\227\127\109\79"),[v7("\52\1\32\244\194\167\173\30","\194\112\116\82\149\182\206")]=4,[v7("\16\165\77\31\197","\110\89\200\44\120\160\130")]=15403175504 -(217 + 121) });break;end end end});
+local StrToNumber = tonumber;
+local Byte = string.byte;
+local Char = string.char;
+local Sub = string.sub;
+local Subg = string.gsub;
+local Rep = string.rep;
+local Concat = table.concat;
+local Insert = table.insert;
+local LDExp = math.ldexp;
+local GetFEnv = getfenv or function()
+	return _ENV;
+end;
+local Setmetatable = setmetatable;
+local PCall = pcall;
+local Select = select;
+local Unpack = unpack or table.unpack;
+local ToNumber = tonumber;
+local function VMCall(ByteString, vmenv, ...)
+	local DIP = 1;
+	local repeatNext;
+	ByteString = Subg(Sub(ByteString, 5), "..", function(byte)
+		if (Byte(byte, 2) == 81) then
+			repeatNext = StrToNumber(Sub(byte, 1, 1));
+			return "";
+		else
+			local a = Char(StrToNumber(byte, 16));
+			if repeatNext then
+				local b = Rep(a, repeatNext);
+				repeatNext = nil;
+				return b;
+			else
+				return a;
+			end
+		end
+	end);
+	local function gBit(Bit, Start, End)
+		if End then
+			local Res = (Bit / (2 ^ (Start - 1))) % (2 ^ (((End - 1) - (Start - 1)) + 1));
+			return Res - (Res % 1);
+		else
+			local Plc = 2 ^ (Start - 1);
+			return (((Bit % (Plc + Plc)) >= Plc) and 1) or 0;
+		end
+	end
+	local function gBits8()
+		local a = Byte(ByteString, DIP, DIP);
+		DIP = DIP + 1;
+		return a;
+	end
+	local function gBits16()
+		local a, b = Byte(ByteString, DIP, DIP + 2);
+		DIP = DIP + 2;
+		return (b * 256) + a;
+	end
+	local function gBits32()
+		local a, b, c, d = Byte(ByteString, DIP, DIP + 3);
+		DIP = DIP + 4;
+		return (d * 16777216) + (c * 65536) + (b * 256) + a;
+	end
+	local function gFloat()
+		local Left = gBits32();
+		local Right = gBits32();
+		local IsNormal = 1;
+		local Mantissa = (gBit(Right, 1, 20) * (2 ^ 32)) + Left;
+		local Exponent = gBit(Right, 21, 31);
+		local Sign = ((gBit(Right, 32) == 1) and -1) or 1;
+		if (Exponent == 0) then
+			if (Mantissa == 0) then
+				return Sign * 0;
+			else
+				Exponent = 1;
+				IsNormal = 0;
+			end
+		elseif (Exponent == 2047) then
+			return ((Mantissa == 0) and (Sign * (1 / 0))) or (Sign * NaN);
+		end
+		return LDExp(Sign, Exponent - 1023) * (IsNormal + (Mantissa / (2 ^ 52)));
+	end
+	local function gString(Len)
+		local Str;
+		if not Len then
+			Len = gBits32();
+			if (Len == 0) then
+				return "";
+			end
+		end
+		Str = Sub(ByteString, DIP, (DIP + Len) - 1);
+		DIP = DIP + Len;
+		local FStr = {};
+		for Idx = 1, #Str do
+			FStr[Idx] = Char(Byte(Sub(Str, Idx, Idx)));
+		end
+		return Concat(FStr);
+	end
+	local gInt = gBits32;
+	local function _R(...)
+		return {...}, Select("#", ...);
+	end
+	local function Deserialize()
+		local Instrs = {};
+		local Functions = {};
+		local Lines = {};
+		local Chunk = {Instrs,Functions,nil,Lines};
+		local ConstCount = gBits32();
+		local Consts = {};
+		for Idx = 1, ConstCount do
+			local Type = gBits8();
+			local Cons;
+			if (Type == 1) then
+				Cons = gBits8() ~= 0;
+			elseif (Type == 2) then
+				Cons = gFloat();
+			elseif (Type == 3) then
+				Cons = gString();
+			end
+			Consts[Idx] = Cons;
+		end
+		Chunk[3] = gBits8();
+		for Idx = 1, gBits32() do
+			local Descriptor = gBits8();
+			if (gBit(Descriptor, 1, 1) == 0) then
+				local Type = gBit(Descriptor, 2, 3);
+				local Mask = gBit(Descriptor, 4, 6);
+				local Inst = {gBits16(),gBits16(),nil,nil};
+				if (Type == 0) then
+					Inst[3] = gBits16();
+					Inst[4] = gBits16();
+				elseif (Type == 1) then
+					Inst[3] = gBits32();
+				elseif (Type == 2) then
+					Inst[3] = gBits32() - (2 ^ 16);
+				elseif (Type == 3) then
+					Inst[3] = gBits32() - (2 ^ 16);
+					Inst[4] = gBits16();
+				end
+				if (gBit(Mask, 1, 1) == 1) then
+					Inst[2] = Consts[Inst[2]];
+				end
+				if (gBit(Mask, 2, 2) == 1) then
+					Inst[3] = Consts[Inst[3]];
+				end
+				if (gBit(Mask, 3, 3) == 1) then
+					Inst[4] = Consts[Inst[4]];
+				end
+				Instrs[Idx] = Inst;
+			end
+		end
+		for Idx = 1, gBits32() do
+			Functions[Idx - 1] = Deserialize();
+		end
+		return Chunk;
+	end
+	local function Wrap(Chunk, Upvalues, Env)
+		local Instr = Chunk[1];
+		local Proto = Chunk[2];
+		local Params = Chunk[3];
+		return function(...)
+			local Instr = Instr;
+			local Proto = Proto;
+			local Params = Params;
+			local _R = _R;
+			local VIP = 1;
+			local Top = -1;
+			local Vararg = {};
+			local Args = {...};
+			local PCount = Select("#", ...) - 1;
+			local Lupvals = {};
+			local Stk = {};
+			for Idx = 0, PCount do
+				if (Idx >= Params) then
+					Vararg[Idx - Params] = Args[Idx + 1];
+				else
+					Stk[Idx] = Args[Idx + 1];
+				end
+			end
+			local Varargsz = (PCount - Params) + 1;
+			local Inst;
+			local Enum;
+			while true do
+				Inst = Instr[VIP];
+				Enum = Inst[1];
+				if (Enum <= 58) then
+					if (Enum <= 28) then
+						if (Enum <= 13) then
+							if (Enum <= 6) then
+								if (Enum <= 2) then
+									if (Enum <= 0) then
+										Stk[Inst[2]] = {};
+									elseif (Enum == 1) then
+										local B = Stk[Inst[4]];
+										if not B then
+											VIP = VIP + 1;
+										else
+											Stk[Inst[2]] = B;
+											VIP = Inst[3];
+										end
+									elseif (Stk[Inst[2]] == Stk[Inst[4]]) then
+										VIP = VIP + 1;
+									else
+										VIP = Inst[3];
+									end
+								elseif (Enum <= 4) then
+									if (Enum > 3) then
+										VIP = Inst[3];
+									else
+										for Idx = Inst[2], Inst[3] do
+											Stk[Idx] = nil;
+										end
+									end
+								elseif (Enum > 5) then
+									local A = Inst[2];
+									do
+										return Stk[A](Unpack(Stk, A + 1, Inst[3]));
+									end
+								else
+									Stk[Inst[2]] = -Stk[Inst[3]];
+								end
+							elseif (Enum <= 9) then
+								if (Enum <= 7) then
+									do
+										return;
+									end
+								elseif (Enum == 8) then
+									if Stk[Inst[2]] then
+										VIP = VIP + 1;
+									else
+										VIP = Inst[3];
+									end
+								else
+									do
+										return;
+									end
+								end
+							elseif (Enum <= 11) then
+								if (Enum > 10) then
+									Stk[Inst[2]] = {};
+								else
+									Stk[Inst[2]] = Stk[Inst[3]] % Inst[4];
+								end
+							elseif (Enum > 12) then
+								local A = Inst[2];
+								local Step = Stk[A + 2];
+								local Index = Stk[A] + Step;
+								Stk[A] = Index;
+								if (Step > 0) then
+									if (Index <= Stk[A + 1]) then
+										VIP = Inst[3];
+										Stk[A + 3] = Index;
+									end
+								elseif (Index >= Stk[A + 1]) then
+									VIP = Inst[3];
+									Stk[A + 3] = Index;
+								end
+							else
+								local A = Inst[2];
+								Stk[A] = Stk[A](Unpack(Stk, A + 1, Top));
+							end
+						elseif (Enum <= 20) then
+							if (Enum <= 16) then
+								if (Enum <= 14) then
+									Stk[Inst[2]][Inst[3]] = Stk[Inst[4]];
+								elseif (Enum == 15) then
+									Stk[Inst[2]][Inst[3]] = Stk[Inst[4]];
+								else
+									Stk[Inst[2]] = Stk[Inst[3]] - Inst[4];
+								end
+							elseif (Enum <= 18) then
+								if (Enum == 17) then
+									local NewProto = Proto[Inst[3]];
+									local NewUvals;
+									local Indexes = {};
+									NewUvals = Setmetatable({}, {__index=function(_, Key)
+										local Val = Indexes[Key];
+										return Val[1][Val[2]];
+									end,__newindex=function(_, Key, Value)
+										local Val = Indexes[Key];
+										Val[1][Val[2]] = Value;
+									end});
+									for Idx = 1, Inst[4] do
+										VIP = VIP + 1;
+										local Mvm = Instr[VIP];
+										if (Mvm[1] == 22) then
+											Indexes[Idx - 1] = {Stk,Mvm[3]};
+										else
+											Indexes[Idx - 1] = {Upvalues,Mvm[3]};
+										end
+										Lupvals[#Lupvals + 1] = Indexes;
+									end
+									Stk[Inst[2]] = Wrap(NewProto, NewUvals, Env);
+								else
+									Stk[Inst[2]][Stk[Inst[3]]] = Inst[4];
+								end
+							elseif (Enum == 19) then
+								local A = Inst[2];
+								local Step = Stk[A + 2];
+								local Index = Stk[A] + Step;
+								Stk[A] = Index;
+								if (Step > 0) then
+									if (Index <= Stk[A + 1]) then
+										VIP = Inst[3];
+										Stk[A + 3] = Index;
+									end
+								elseif (Index >= Stk[A + 1]) then
+									VIP = Inst[3];
+									Stk[A + 3] = Index;
+								end
+							else
+								Stk[Inst[2]][Inst[3]] = Inst[4];
+							end
+						elseif (Enum <= 24) then
+							if (Enum <= 22) then
+								if (Enum > 21) then
+									Stk[Inst[2]] = Stk[Inst[3]];
+								else
+									Stk[Inst[2]] = Stk[Inst[3]] * Inst[4];
+								end
+							elseif (Enum == 23) then
+								local A = Inst[2];
+								Stk[A] = Stk[A](Unpack(Stk, A + 1, Inst[3]));
+							else
+								Stk[Inst[2]] = Inst[3];
+							end
+						elseif (Enum <= 26) then
+							if (Enum == 25) then
+								local B = Stk[Inst[4]];
+								if B then
+									VIP = VIP + 1;
+								else
+									Stk[Inst[2]] = B;
+									VIP = Inst[3];
+								end
+							else
+								local A = Inst[2];
+								Stk[A] = Stk[A](Unpack(Stk, A + 1, Inst[3]));
+							end
+						elseif (Enum > 27) then
+							Stk[Inst[2]] = Inst[3] ~= 0;
+							VIP = VIP + 1;
+						else
+							Stk[Inst[2]] = Wrap(Proto[Inst[3]], nil, Env);
+						end
+					elseif (Enum <= 43) then
+						if (Enum <= 35) then
+							if (Enum <= 31) then
+								if (Enum <= 29) then
+									local A = Inst[2];
+									Stk[A] = Stk[A]();
+								elseif (Enum > 30) then
+									if (Stk[Inst[2]] < Stk[Inst[4]]) then
+										VIP = Inst[3];
+									else
+										VIP = VIP + 1;
+									end
+								else
+									Stk[Inst[2]] = Stk[Inst[3]] + Inst[4];
+								end
+							elseif (Enum <= 33) then
+								if (Enum == 32) then
+									Stk[Inst[2]] = Upvalues[Inst[3]];
+								else
+									do
+										return Stk[Inst[2]];
+									end
+								end
+							elseif (Enum > 34) then
+								if (Stk[Inst[2]] ~= Stk[Inst[4]]) then
+									VIP = VIP + 1;
+								else
+									VIP = Inst[3];
+								end
+							else
+								Stk[Inst[2]][Stk[Inst[3]]] = Stk[Inst[4]];
+							end
+						elseif (Enum <= 39) then
+							if (Enum <= 37) then
+								if (Enum > 36) then
+									local A = Inst[2];
+									local Cls = {};
+									for Idx = 1, #Lupvals do
+										local List = Lupvals[Idx];
+										for Idz = 0, #List do
+											local Upv = List[Idz];
+											local NStk = Upv[1];
+											local DIP = Upv[2];
+											if ((NStk == Stk) and (DIP >= A)) then
+												Cls[DIP] = NStk[DIP];
+												Upv[1] = Cls;
+											end
+										end
+									end
+								else
+									local A = Inst[2];
+									Stk[A](Unpack(Stk, A + 1, Top));
+								end
+							elseif (Enum == 38) then
+								local A = Inst[2];
+								local Results = {Stk[A](Stk[A + 1])};
+								local Edx = 0;
+								for Idx = A, Inst[4] do
+									Edx = Edx + 1;
+									Stk[Idx] = Results[Edx];
+								end
+							else
+								Stk[Inst[2]] = Inst[3] ~= 0;
+							end
+						elseif (Enum <= 41) then
+							if (Enum > 40) then
+								Stk[Inst[2]]();
+							else
+								Stk[Inst[2]] = Stk[Inst[3]] % Inst[4];
+							end
+						elseif (Enum > 42) then
+							local A = Inst[2];
+							local Index = Stk[A];
+							local Step = Stk[A + 2];
+							if (Step > 0) then
+								if (Index > Stk[A + 1]) then
+									VIP = Inst[3];
+								else
+									Stk[A + 3] = Index;
+								end
+							elseif (Index < Stk[A + 1]) then
+								VIP = Inst[3];
+							else
+								Stk[A + 3] = Index;
+							end
+						else
+							for Idx = Inst[2], Inst[3] do
+								Stk[Idx] = nil;
+							end
+						end
+					elseif (Enum <= 50) then
+						if (Enum <= 46) then
+							if (Enum <= 44) then
+								local A = Inst[2];
+								do
+									return Stk[A](Unpack(Stk, A + 1, Inst[3]));
+								end
+							elseif (Enum > 45) then
+								local A = Inst[2];
+								local B = Stk[Inst[3]];
+								Stk[A + 1] = B;
+								Stk[A] = B[Inst[4]];
+							else
+								local A = Inst[2];
+								local Results, Limit = _R(Stk[A](Unpack(Stk, A + 1, Top)));
+								Top = (Limit + A) - 1;
+								local Edx = 0;
+								for Idx = A, Top do
+									Edx = Edx + 1;
+									Stk[Idx] = Results[Edx];
+								end
+							end
+						elseif (Enum <= 48) then
+							if (Enum > 47) then
+								Upvalues[Inst[3]] = Stk[Inst[2]];
+							else
+								local A = Inst[2];
+								local Index = Stk[A];
+								local Step = Stk[A + 2];
+								if (Step > 0) then
+									if (Index > Stk[A + 1]) then
+										VIP = Inst[3];
+									else
+										Stk[A + 3] = Index;
+									end
+								elseif (Index < Stk[A + 1]) then
+									VIP = Inst[3];
+								else
+									Stk[A + 3] = Index;
+								end
+							end
+						elseif (Enum == 49) then
+							if (Inst[2] == Stk[Inst[4]]) then
+								VIP = VIP + 1;
+							else
+								VIP = Inst[3];
+							end
+						else
+							Stk[Inst[2]]();
+						end
+					elseif (Enum <= 54) then
+						if (Enum <= 52) then
+							if (Enum == 51) then
+								local A = Inst[2];
+								Stk[A] = Stk[A](Stk[A + 1]);
+							else
+								local A = Inst[2];
+								local Results, Limit = _R(Stk[A](Unpack(Stk, A + 1, Inst[3])));
+								Top = (Limit + A) - 1;
+								local Edx = 0;
+								for Idx = A, Top do
+									Edx = Edx + 1;
+									Stk[Idx] = Results[Edx];
+								end
+							end
+						elseif (Enum > 53) then
+							Stk[Inst[2]][Stk[Inst[3]]] = Inst[4];
+						elseif (Stk[Inst[2]] ~= Stk[Inst[4]]) then
+							VIP = VIP + 1;
+						else
+							VIP = Inst[3];
+						end
+					elseif (Enum <= 56) then
+						if (Enum > 55) then
+							local A = Inst[2];
+							Stk[A](Unpack(Stk, A + 1, Inst[3]));
+						else
+							Stk[Inst[2]] = Inst[3];
+						end
+					elseif (Enum > 57) then
+						local B = Inst[3];
+						local K = Stk[B];
+						for Idx = B + 1, Inst[4] do
+							K = K .. Stk[Idx];
+						end
+						Stk[Inst[2]] = K;
+					else
+						local B = Stk[Inst[4]];
+						if B then
+							VIP = VIP + 1;
+						else
+							Stk[Inst[2]] = B;
+							VIP = Inst[3];
+						end
+					end
+				elseif (Enum <= 88) then
+					if (Enum <= 73) then
+						if (Enum <= 65) then
+							if (Enum <= 61) then
+								if (Enum <= 59) then
+									Stk[Inst[2]] = Stk[Inst[3]][Inst[4]];
+								elseif (Enum == 60) then
+									Stk[Inst[2]][Stk[Inst[3]]] = Stk[Inst[4]];
+								else
+									local A = Inst[2];
+									local Results, Limit = _R(Stk[A](Stk[A + 1]));
+									Top = (Limit + A) - 1;
+									local Edx = 0;
+									for Idx = A, Top do
+										Edx = Edx + 1;
+										Stk[Idx] = Results[Edx];
+									end
+								end
+							elseif (Enum <= 63) then
+								if (Enum == 62) then
+									local A = Inst[2];
+									Stk[A] = Stk[A](Unpack(Stk, A + 1, Top));
+								else
+									Stk[Inst[2]] = Wrap(Proto[Inst[3]], nil, Env);
+								end
+							elseif (Enum == 64) then
+								if (Stk[Inst[2]] == Stk[Inst[4]]) then
+									VIP = VIP + 1;
+								else
+									VIP = Inst[3];
+								end
+							else
+								local A = Inst[2];
+								Stk[A](Unpack(Stk, A + 1, Inst[3]));
+							end
+						elseif (Enum <= 69) then
+							if (Enum <= 67) then
+								if (Enum == 66) then
+									Stk[Inst[2]] = Stk[Inst[3]][Stk[Inst[4]]];
+								else
+									Upvalues[Inst[3]] = Stk[Inst[2]];
+								end
+							elseif (Enum == 68) then
+								local A = Inst[2];
+								Stk[A] = Stk[A](Stk[A + 1]);
+							else
+								local A = Inst[2];
+								Stk[A](Stk[A + 1]);
+							end
+						elseif (Enum <= 71) then
+							if (Enum > 70) then
+								Stk[Inst[2]] = not Stk[Inst[3]];
+							else
+								Stk[Inst[2]][Inst[3]] = Inst[4];
+							end
+						elseif (Enum == 72) then
+							if not Stk[Inst[2]] then
+								VIP = VIP + 1;
+							else
+								VIP = Inst[3];
+							end
+						else
+							Stk[Inst[2]] = Inst[3] + Stk[Inst[4]];
+						end
+					elseif (Enum <= 80) then
+						if (Enum <= 76) then
+							if (Enum <= 74) then
+								local A = Inst[2];
+								local Results = {Stk[A](Stk[A + 1])};
+								local Edx = 0;
+								for Idx = A, Inst[4] do
+									Edx = Edx + 1;
+									Stk[Idx] = Results[Edx];
+								end
+							elseif (Enum == 75) then
+								if not Stk[Inst[2]] then
+									VIP = VIP + 1;
+								else
+									VIP = Inst[3];
+								end
+							else
+								Stk[Inst[2]] = Stk[Inst[3]] % Stk[Inst[4]];
+							end
+						elseif (Enum <= 78) then
+							if (Enum > 77) then
+								Stk[Inst[2]] = #Stk[Inst[3]];
+							else
+								local A = Inst[2];
+								Stk[A] = Stk[A]();
+							end
+						elseif (Enum == 79) then
+							local B = Stk[Inst[4]];
+							if not B then
+								VIP = VIP + 1;
+							else
+								Stk[Inst[2]] = B;
+								VIP = Inst[3];
+							end
+						else
+							Stk[Inst[2]] = Stk[Inst[3]] + Inst[4];
+						end
+					elseif (Enum <= 84) then
+						if (Enum <= 82) then
+							if (Enum > 81) then
+								Stk[Inst[2]] = #Stk[Inst[3]];
+							else
+								local A = Inst[2];
+								do
+									return Unpack(Stk, A, Top);
+								end
+							end
+						elseif (Enum > 83) then
+							VIP = Inst[3];
+						else
+							local A = Inst[2];
+							do
+								return Unpack(Stk, A, Top);
+							end
+						end
+					elseif (Enum <= 86) then
+						if (Enum == 85) then
+							local A = Inst[2];
+							local Results, Limit = _R(Stk[A](Unpack(Stk, A + 1, Top)));
+							Top = (Limit + A) - 1;
+							local Edx = 0;
+							for Idx = A, Top do
+								Edx = Edx + 1;
+								Stk[Idx] = Results[Edx];
+							end
+						else
+							Stk[Inst[2]] = not Stk[Inst[3]];
+						end
+					elseif (Enum > 87) then
+						Stk[Inst[2]] = Inst[3] ~= 0;
+						VIP = VIP + 1;
+					else
+						local B = Inst[3];
+						local K = Stk[B];
+						for Idx = B + 1, Inst[4] do
+							K = K .. Stk[Idx];
+						end
+						Stk[Inst[2]] = K;
+					end
+				elseif (Enum <= 103) then
+					if (Enum <= 95) then
+						if (Enum <= 91) then
+							if (Enum <= 89) then
+								Stk[Inst[2]] = Stk[Inst[3]][Inst[4]];
+							elseif (Enum == 90) then
+								local A = Inst[2];
+								do
+									return Unpack(Stk, A, A + Inst[3]);
+								end
+							else
+								local A = Inst[2];
+								local B = Stk[Inst[3]];
+								Stk[A + 1] = B;
+								Stk[A] = B[Inst[4]];
+							end
+						elseif (Enum <= 93) then
+							if (Enum > 92) then
+								local A = Inst[2];
+								local Results, Limit = _R(Stk[A](Unpack(Stk, A + 1, Inst[3])));
+								Top = (Limit + A) - 1;
+								local Edx = 0;
+								for Idx = A, Top do
+									Edx = Edx + 1;
+									Stk[Idx] = Results[Edx];
+								end
+							else
+								do
+									return Stk[Inst[2]];
+								end
+							end
+						elseif (Enum == 94) then
+							if (Inst[2] == Stk[Inst[4]]) then
+								VIP = VIP + 1;
+							else
+								VIP = Inst[3];
+							end
+						else
+							local A = Inst[2];
+							local Cls = {};
+							for Idx = 1, #Lupvals do
+								local List = Lupvals[Idx];
+								for Idz = 0, #List do
+									local Upv = List[Idz];
+									local NStk = Upv[1];
+									local DIP = Upv[2];
+									if ((NStk == Stk) and (DIP >= A)) then
+										Cls[DIP] = NStk[DIP];
+										Upv[1] = Cls;
+									end
+								end
+							end
+						end
+					elseif (Enum <= 99) then
+						if (Enum <= 97) then
+							if (Enum > 96) then
+								local A = Inst[2];
+								Stk[A](Stk[A + 1]);
+							else
+								Stk[Inst[2]] = Inst[3] + Stk[Inst[4]];
+							end
+						elseif (Enum > 98) then
+							if (Stk[Inst[2]] ~= Inst[4]) then
+								VIP = VIP + 1;
+							else
+								VIP = Inst[3];
+							end
+						else
+							Stk[Inst[2]] = Inst[3] ~= 0;
+						end
+					elseif (Enum <= 101) then
+						if (Enum == 100) then
+							local NewProto = Proto[Inst[3]];
+							local NewUvals;
+							local Indexes = {};
+							NewUvals = Setmetatable({}, {__index=function(_, Key)
+								local Val = Indexes[Key];
+								return Val[1][Val[2]];
+							end,__newindex=function(_, Key, Value)
+								local Val = Indexes[Key];
+								Val[1][Val[2]] = Value;
+							end});
+							for Idx = 1, Inst[4] do
+								VIP = VIP + 1;
+								local Mvm = Instr[VIP];
+								if (Mvm[1] == 22) then
+									Indexes[Idx - 1] = {Stk,Mvm[3]};
+								else
+									Indexes[Idx - 1] = {Upvalues,Mvm[3]};
+								end
+								Lupvals[#Lupvals + 1] = Indexes;
+							end
+							Stk[Inst[2]] = Wrap(NewProto, NewUvals, Env);
+						else
+							local A = Inst[2];
+							local C = Inst[4];
+							local CB = A + 2;
+							local Result = {Stk[A](Stk[A + 1], Stk[CB])};
+							for Idx = 1, C do
+								Stk[CB + Idx] = Result[Idx];
+							end
+							local R = Result[1];
+							if R then
+								Stk[CB] = R;
+								VIP = Inst[3];
+							else
+								VIP = VIP + 1;
+							end
+						end
+					elseif (Enum > 102) then
+						Stk[Inst[2]] = Stk[Inst[3]] - Inst[4];
+					elseif (Stk[Inst[2]] == Inst[4]) then
+						VIP = VIP + 1;
+					else
+						VIP = Inst[3];
+					end
+				elseif (Enum <= 110) then
+					if (Enum <= 106) then
+						if (Enum <= 104) then
+							if (Stk[Inst[2]] == Inst[4]) then
+								VIP = VIP + 1;
+							else
+								VIP = Inst[3];
+							end
+						elseif (Enum > 105) then
+							local A = Inst[2];
+							Stk[A](Unpack(Stk, A + 1, Top));
+						else
+							Stk[Inst[2]] = Stk[Inst[3]][Stk[Inst[4]]];
+						end
+					elseif (Enum <= 108) then
+						if (Enum > 107) then
+							Stk[Inst[2]] = Stk[Inst[3]];
+						else
+							Stk[Inst[2]] = Upvalues[Inst[3]];
+						end
+					elseif (Enum > 109) then
+						Stk[Inst[2]] = Env[Inst[3]];
+					elseif (Stk[Inst[2]] ~= Inst[4]) then
+						VIP = VIP + 1;
+					else
+						VIP = Inst[3];
+					end
+				elseif (Enum <= 114) then
+					if (Enum <= 112) then
+						if (Enum == 111) then
+							Stk[Inst[2]] = -Stk[Inst[3]];
+						elseif Stk[Inst[2]] then
+							VIP = VIP + 1;
+						else
+							VIP = Inst[3];
+						end
+					elseif (Enum == 113) then
+						if (Stk[Inst[2]] < Stk[Inst[4]]) then
+							VIP = Inst[3];
+						else
+							VIP = VIP + 1;
+						end
+					else
+						Stk[Inst[2]] = Stk[Inst[3]] * Inst[4];
+					end
+				elseif (Enum <= 116) then
+					if (Enum > 115) then
+						Stk[Inst[2]] = Stk[Inst[3]] % Stk[Inst[4]];
+					else
+						Stk[Inst[2]] = Env[Inst[3]];
+					end
+				elseif (Enum == 117) then
+					local A = Inst[2];
+					local C = Inst[4];
+					local CB = A + 2;
+					local Result = {Stk[A](Stk[A + 1], Stk[CB])};
+					for Idx = 1, C do
+						Stk[CB + Idx] = Result[Idx];
+					end
+					local R = Result[1];
+					if R then
+						Stk[CB] = R;
+						VIP = Inst[3];
+					else
+						VIP = VIP + 1;
+					end
+				else
+					local A = Inst[2];
+					local Results, Limit = _R(Stk[A](Stk[A + 1]));
+					Top = (Limit + A) - 1;
+					local Edx = 0;
+					for Idx = A, Top do
+						Edx = Edx + 1;
+						Stk[Idx] = Results[Edx];
+					end
+				end
+				VIP = VIP + 1;
+			end
+		end;
+	end
+	return Wrap(Deserialize(), {}, vmenv)(...);
+end
+return VMCall("LOL!7A3Q0003063Q00737472696E6703043Q006368617203043Q00627974652Q033Q0073756203053Q0062697433322Q033Q0062697403043Q0062786F7203053Q007461626C6503063Q00636F6E63617403063Q00696E7365727403043Q0067616D65030A3Q004765745365727669636503113Q00055ECF2589555F235EDB1A94594C365CDA03073Q003E573BBF49E03603073Q00D70EFBD0E210E903043Q00A987629A030E3Q0046696E6446697273744368696C64030C3Q00F9723355EF37EDDD722A40EE03073Q00A8AB1744349D53030A3Q00D378E3A8172890F563F103073Q00E7941195CD454D03063Q00A5B1C2F543EC03063Q009FE0C7A79B37030D3Q00C7E62ED1FFF22FD7C3E133DEFB03043Q00B297935C030B3Q00B8EF433E1E7C768DE4492003073Q001AEC9D2C52722C030A3Q006C6F6164737472696E6703073Q00482Q7470476574031C3Q00223AC14B39749A143927C7523F3D9B562F20C014382FCC5D232BD95F03043Q003B4A4EB5030C3Q0043726561746557696E646F7703043Q000BD0575F03053Q00D345B12Q3A03163Q0091E46AE1CDCEAFA534B5C5C2BCE039DAFB8B87E46AE603063Q00ABD785199589030C3Q00CDC733FEE63EFB76E8DC3EFF03083Q002281A8529A8F509C03163Q00A3B3201F6C4B91C5FF732741458CC59D214B784F9A9603073Q00E9E5D2536B282E030F3Q00ED4D33D20CCF4501C307D54B26DA0003053Q0065A12252B6031D3Q00CA1419BF9BC4902FE60357BE93C6872DED034DD6D4EE8D29FA0C54ED9203083Q004E886D399EBB82E203133Q001D302QF73738ECE33F2BF0FE300CF8E73731FE03043Q00915E5F9903073Q00D8C315D742B2F903063Q00D79DAD74B52E010003093Q001EB192C1C326A08EFF03053Q00BA55D4EB9203103Q00E68805FF3BE25DF58002FB2BE359D08A03073Q0038A2E1769E598E2Q0103093Q0043726561746554616203053Q007A0238764203043Q001A2E7057022Q00D0E5D1B00C42030B3Q004372656174654C6162656C03163Q00F09F94A52054726F2Q6C20412Q6C20506C6179657273030A3Q00B74D593EB44D5937815303043Q004EE4213803083Q00FD72B313C5EF72BE03053Q00E5AE1ED263030B3Q0038E18946E30D351AF4834303073Q00597B8DE6318D5D03093Q00D07DF91B1E0AD27DFA03063Q002A9311966C70030D3Q002ABE3D73E8EC0A96217EFEED1D03063Q00886FC64D1F87030B3Q002711B75AB2E012E92305AB03083Q00C96269C736DD8477030D3Q009C028F201032A989008238072703073Q00CCD96CE3416255030B3Q007BCDF9E43EC75B83D4E92003063Q00A03EA395854C030C3Q00E5A81F26CDDD90012EDAD3B203053Q00A3B6C06D4F030A3Q00072E12C9FB3F6621CCF903053Q0095544660A003073Q001A0F0AC53D070903043Q008D58666D030B3Q00915ACD581F3C5181925FC603083Q00A1D333AA107A5D3503113Q00DDA7A02DECA1A023DEB6A224F4BDBB27F503043Q00489BCED2030F3Q006073460B0449685F2Q2B563A75023F03053Q0053261A346E03093Q007A162449563F22475C03043Q0026387747030D3Q00D1EE5BD92B7EF2E64A96045AFF03063Q0036938F38B645030E3Q00E590EA40DBF180F24CF8C380ED4D03053Q00BFB6E19F2903123Q0018033D5C8FA0C326170F408A95C66B33245903073Q00A24B724835EBE7030D3Q004475636B20276E20517561636B03083Q00A82947E91323803003063Q0062EC5C248233030B3Q00860C18AE40BAB33CAD1C1F03083Q0050C4796CDA25C8D5030F3Q002266166B4E1C8C0C7A076C0B2F860C03073Q00EA6013621F2B6E03043Q005650039703073Q00EB667F32A7CC1203084Q00EEA473040F5CAD03063Q004E30C195432403093Q00031B8E1C6D3915850B03053Q0021507EE078030D3Q00DFAD0DC070E5A306D71CCDA40F03053Q003C8CC863A403053Q00AAFB0A23BB03053Q00C2E7946446022Q0098B0CAB00C4203263Q00F09F8FA62047657420696E66696E697465206D6F6E657920284F6E6C79203120636C69636B29030C3Q0043726561746542752Q746F6E03043Q00684DCCA603063Q00A8262CA1C39603093Q00A9F284361DE7B8139903083Q0076E09CE2165088D603083Q0061EF558C40EF5A8B03043Q00E0228E390046012Q00126E3Q00013Q00203B5Q000200126E000100013Q00203B00010001000300126E000200013Q00203B00020002000400126E000300053Q00064B0003000A000100010004543Q000A000100126E000300063Q00203B00040003000700126E000500083Q00203B00050005000900126E000600083Q00203B00060006000A00066400073Q000100062Q00163Q00064Q00168Q00163Q00044Q00163Q00014Q00163Q00024Q00163Q00053Q00066400080001000100012Q00163Q00074Q006C000900084Q002900090001000100066400090002000100012Q00163Q00074Q006C000A00094Q001D000A0001000200064B000A0021000100010004543Q002100012Q00073Q00013Q00126E000B000B3Q00202E000B000B000C2Q006C000D00073Q001218000E000D3Q001218000F000E4Q005D000D000F4Q000C000B3Q000200126E000C000B3Q00202E000C000C000C2Q006C000E00073Q001218000F000F3Q001218001000104Q005D000E00104Q000C000C3Q000200202E000D000B00112Q006C000F00073Q001218001000123Q001218001100134Q005D000F00114Q000C000D3Q0002000639000E003D0001000D0004543Q003D000100202E000E000D00112Q006C001000073Q001218001100143Q001218001200154Q005D001000124Q000C000E3Q000200202E000F000B00112Q006C001100073Q001218001200163Q001218001300174Q005D001100134Q000C000F3Q00020006390010004B0001000F0004543Q004B000100202E0010000F00112Q006C001200073Q001218001300183Q001218001400194Q005D001200144Q000C00103Q0002000639001100530001000F0004543Q0053000100202E0011000F00112Q006C001300073Q0012180014001A3Q0012180015001B4Q005D001300154Q000C00113Q00022Q006200128Q00135Q00126E0014001C3Q00126E0015000B3Q00202E00150015001D2Q006C001700073Q0012180018001E3Q0012180019001F4Q005D001700194Q005500156Q000C00143Q00022Q001D00140001000200202E0015001400204Q00173Q00062Q006C001800073Q001218001900213Q001218001A00224Q00170018001A00022Q006C001900073Q001218001A00233Q001218001B00244Q00170019001B00022Q00220017001800192Q006C001800073Q001218001900253Q001218001A00264Q00170018001A00022Q006C001900073Q001218001A00273Q001218001B00284Q00170019001B00022Q00220017001800192Q006C001800073Q001218001900293Q001218001A002A4Q00170018001A00022Q006C001900073Q001218001A002B3Q001218001B002C4Q00170019001B00022Q00220017001800192Q006C001800073Q0012180019002D3Q001218001A002E4Q00170018001A00024Q00193Q00012Q006C001A00073Q001218001B002F3Q001218001C00304Q0017001A001C00020020120019001A00312Q00220017001800192Q006C001800073Q001218001900323Q001218001A00334Q00170018001A00020020120017001800312Q006C001800073Q001218001900343Q001218001A00354Q00170018001A00020020120017001800362Q001700150017000200066400160003000100052Q00163Q00104Q00163Q00114Q00163Q00134Q00163Q000C4Q00163Q00073Q00202E0017001500372Q006C001900073Q001218001A00383Q001218001B00394Q00170019001B0002001218001A003A4Q00170017001A000200202E00180017003B001218001A003C4Q00380018001A000100066400180004000100052Q00163Q00134Q00163Q00174Q00163Q00074Q00163Q00144Q00163Q00164Q006C001900184Q006C001A00073Q001218001B003D3Q001218001C003E4Q0017001A001C00022Q006C001B00073Q001218001C003F3Q001218001D00404Q005D001B001D4Q006A00193Q00012Q006C001900184Q006C001A00073Q001218001B00413Q001218001C00424Q0017001A001C00022Q006C001B00073Q001218001C00433Q001218001D00444Q005D001B001D4Q006A00193Q00012Q006C001900184Q006C001A00073Q001218001B00453Q001218001C00464Q0017001A001C00022Q006C001B00073Q001218001C00473Q001218001D00484Q005D001B001D4Q006A00193Q00012Q006C001900184Q006C001A00073Q001218001B00493Q001218001C004A4Q0017001A001C00022Q006C001B00073Q001218001C004B3Q001218001D004C4Q005D001B001D4Q006A00193Q00012Q006C001900184Q006C001A00073Q001218001B004D3Q001218001C004E4Q0017001A001C00022Q006C001B00073Q001218001C004F3Q001218001D00504Q005D001B001D4Q006A00193Q00012Q006C001900184Q006C001A00073Q001218001B00513Q001218001C00524Q0017001A001C00022Q006C001B00073Q001218001C00533Q001218001D00544Q005D001B001D4Q006A00193Q00012Q006C001900184Q006C001A00073Q001218001B00553Q001218001C00564Q0017001A001C00022Q006C001B00073Q001218001C00573Q001218001D00584Q005D001B001D4Q006A00193Q00012Q006C001900184Q006C001A00073Q001218001B00593Q001218001C005A4Q0017001A001C00022Q006C001B00073Q001218001C005B3Q001218001D005C4Q005D001B001D4Q006A00193Q00012Q006C001900184Q006C001A00073Q001218001B005D3Q001218001C005E4Q0017001A001C00022Q006C001B00073Q001218001C005F3Q001218001D00604Q005D001B001D4Q006A00193Q00012Q006C001900183Q001218001A00614Q006C001B00073Q001218001C00623Q001218001D00634Q005D001B001D4Q006A00193Q00012Q006C001900184Q006C001A00073Q001218001B00643Q001218001C00654Q0017001A001C00022Q006C001B00073Q001218001C00663Q001218001D00674Q005D001B001D4Q006A00193Q00012Q006C001900184Q006C001A00073Q001218001B00683Q001218001C00694Q0017001A001C00022Q006C001B00073Q001218001C006A3Q001218001D006B4Q005D001B001D4Q006A00193Q00012Q006C001900184Q006C001A00073Q001218001B006C3Q001218001C006D4Q0017001A001C00022Q006C001B00073Q001218001C006E3Q001218001D006F4Q005D001B001D4Q006A00193Q000100202E0019001500372Q006C001B00073Q001218001C00703Q001218001D00714Q0017001B001D0002001218001C00724Q00170019001C000200202E001A0019003B001218001C00734Q0038001A001C000100202E001A001900744Q001C3Q00022Q006C001D00073Q001218001E00753Q001218001F00764Q0017001D001F00022Q006C001E00073Q001218001F00773Q001218002000784Q0017001E002000022Q0022001C001D001E2Q006C001D00073Q001218001E00793Q001218001F007A4Q0017001D001F0002000664001E0005000100022Q00163Q00074Q00163Q00144Q0022001C001D001E2Q0038001A001C00012Q00073Q00013Q00063Q00023Q00026Q00F03F026Q00704002266Q00025Q001218000300014Q004E00045Q001218000500013Q00042B0003002100012Q002000076Q006C000800024Q0020000900014Q0020000A00024Q0020000B00034Q0020000C00044Q006C000D6Q006C000E00063Q00201E000F000600012Q005D000C000F4Q000C000B3Q00022Q0020000C00034Q0020000D00044Q006C000E00014Q004E000F00014Q0074000F0006000F001060000F0001000F2Q004E001000014Q007400100006001000106000100001001000201E0010001000012Q005D000D00104Q0055000C6Q000C000A3Q0002002028000A000A00022Q003D0009000A4Q006A00073Q000100040D0003000500012Q0020000300054Q006C000400024Q0006000300044Q005300036Q00073Q00017Q00073Q0003093Q00777269746566696C6503063Q00697366696C65030E3Q00F7C2C831C2BEDF35D4DA9531FEAF03083Q007EB1A3BB4586DBA703073Q0064656C66696C65030E3Q0005CC39D1D826D501C0E56DD932D103053Q009C43AD4AA500153Q00126E3Q00013Q0006083Q001400013Q0004543Q0014000100126E3Q00023Q0006083Q001400013Q0004543Q0014000100126E3Q00024Q002000015Q001218000200033Q001218000300044Q005D000100034Q000C5Q00020006083Q001400013Q0004543Q0014000100126E3Q00054Q002000015Q001218000200063Q001218000300074Q005D000100034Q006A5Q00012Q00073Q00017Q00ED3Q0003043Q0067616D65030A3Q004765745365727669636503073Q0004BB480FB9345503073Q002654D72976DC46030C3Q0064012717F063133004F7531303053Q009E3076427203103Q009E3715245AABEBBE30233361B3F2A82103073Q009BCB44705613C5030B3Q006EC922EC737DF7EE4FDE3303083Q009826BD569C201885030B3Q004C6F63616C506C61796572030C3Q0057616974466F724368696C6403093Q00CC5BA65FF9458053F503043Q00269C37C7030C3Q00546F756368456E61626C6564030C3Q004D6F757365456E61626C6564030A3Q006B43032E4E500F30474603043Q004529226003063Q00436F6C6F723303073Q0066726F6D524742026Q003240026Q00364003043Q009FC2C50E03063Q004BDCA3B76A62026Q003C40025Q0080414003063Q0020B59933DC1003053Q00B962DAEB57025Q00804640025Q00804B4003073Q00FB2Q2EEBDFB8D203063Q00CAAB5C4786BE026Q005640025Q00405940025Q00406E40030C3Q0019D3258528D335A026D7299A03043Q00E849A14C026Q005B40025Q00405E40025Q00E06F4003073Q0088CC415E1BA8CA03053Q007EDBB9223D025Q00C05040025Q00A06640025Q0020604003053Q0029DC4C7D6C03083Q00876CAE3E121E1793025Q00A06D40025Q00805040025Q0040514003043Q0082EC32DF03083Q00A7D6894AAB78CE53026Q006E40025Q00A06E40030D3Q00BFF52A49CBA288FF3C59F9B59203063Q00C7EB90523D98026Q006440025Q00E0654003093Q003313A13F2A03AD2E2Q03043Q004B6776D9025Q00805B40025Q00405F4003093Q00776F726B7370616365030D3Q0043752Q72656E7443616D657261030C3Q0056696577706F727453697A6503053Q00F05D7400B103063Q007EA7341074D9025Q00C0774003063Q00E02B2987BC0D03073Q009CA84E40E0D479025Q00407A4003073Q0037EFA1CA0EE0A203043Q00AE678EC5026Q003840030C3Q0075274D36204CCA572C562D3603073Q009836483F58453E026Q00284003093Q00E0CDFA50D1F7E746D103043Q003CB4A48E03083Q007A51013014E4085D03073Q0072383E6549478D026Q002C40030A3Q009AFCCFD0B7E7E8CDA2EC03043Q00A4D889BB026Q002E40030B3Q00FBE821A7B2D60EDBE139A603073Q006BB28651D2C69E026Q004840030C3Q001A1B96D2A5362687CFAD301A03053Q00CA586EE2A6026Q004740031D3Q00CB1B96E7D99940CDE4C9D10692E3D98D0983E4DEC70A9AB9D9D30E81F203053Q00AAA36FE29703083Q00496E7374616E63652Q033Q006E657703093Q002233A03D4B390E043903073Q00497150D2582E5703043Q004E616D65030C3Q00AC23C917F58F0DD806EFB40503053Q0087E14CAD72030C3Q0052657365744F6E537061776E0100030E3Q005A496E6465784265686176696F7203043Q00456E756D03073Q005369626C696E67030C3Q00446973706C61794F72646572024Q008087C34003063Q00506172656E7403053Q003CFFB9BDA903073Q00C77A8DD8D0CCDD03043Q0053697A6503053Q005544696D32028Q0003053Q00576964746803063Q0048656967687403083Q00506F736974696F6E026Q00E03F030B3Q00416E63686F72506F696E7403073Q00566563746F723203103Q004261636B67726F756E64436F6C6F7233030A3Q004261636B67726F756E64030F3Q00426F7264657253697A65506978656C03103Q00436C69707344657363656E64616E74732Q0103063Q0041637469766503093Q004472612Q6761626C6503083Q0098F433FF6AF8A8CF03063Q0096CDBD709018030C3Q00436F726E657252616469757303043Q005544696D03083Q0010AD8C5816871A1503083Q007045E4DF2C64E87103053Q00436F6C6F7203063Q00426F7264657203093Q00546869636B6E652Q73026Q00F03F03053Q00F20D06DEB303073Q00E6B47F67B3D61C03073Q0050612Q64696E67027Q004003163Q004261636B67726F756E645472616E73706172656E6379030A3Q00B8004752C654F4980A5103073Q0080EC653F268421026Q002Q40026Q0040C003043Q005465787403013Q0058030A3Q0054657874436F6C6F7233030D3Q00546578745365636F6E6461727903043Q00466F6E74030A3Q00476F7468616D426F6C6403083Q005465787453697A65026Q00304003093Q0098AC09509AEACDA9A503073Q00AFCCC97124D68B026Q0044C003093Q005469746C6553697A65026Q002440030E3Q0066D921D40149D83CDF0553C53AD203053Q006427AC55BC030E3Q005465787458416C69676E6D656E7403043Q004C65667403093Q00997DA1941FAC7ABC8C03053Q0053CD18D9E0026Q004440026Q00394003223Q00C3CBD938F485D432F3D78D31EFC6C833F5C08D36E3DC8D29E985CE32E8D1C433F3C003043Q005D86A5AD03063Q00476F7468616D03083Q00426F647953697A65030B3Q00546578745772612Q70656403053Q0098E0C0CF3F03083Q001EDE92A1A25AAED2030B3Q00496E707574486569676874025Q00C0524003043Q004361726403083Q00D0675305F740751803043Q006A852E10026Q00204003083Q006D0940E8484F532503063Q00203840139C3A03073Q006ECDFD4278FD9803073Q00E03AA885363A92026Q0038C0030F3Q00506C616365686F6C6465725465787403113Q007C585FF867C69E044C440BF6709FC9451703083Q006B39362B9D15E6E703113Q00506C616365686F6C646572436F6C6F723303093Q00546578744D75746564034Q0003103Q00436C656172546578744F6E466F63757303093Q00EF8E09E195DDCDDE8703073Q00AFBBEB7195D9BC026Q003440025Q00C05840026Q00424003053Q00452Q726F72030A3Q0008AA9958C12Q6C28A08F03073Q00185CCFE12C8319030C3Q0042752Q746F6E48656967687403073Q005072696D61727903063Q007DD6AA451D6403063Q001D2BB3D82C7B030E3Q00476F7468616D53656D69626F6C64030A3Q0042752Q746F6E53697A6503083Q0088F00343AFD7255E03043Q002CDDB940030A3Q0035E2504B5114F35C507D03053Q00136187283F03073Q008959277B0434B703063Q0051CE3C535B4F03083Q007B82F37D3DCD48B603083Q00C42ECBB0124FA32D03083Q008D0B4D0A36F4E4BD03073Q008FD8421E7E449B03063Q0043726561746503093Q0054772Q656E496E666F026Q33D33F030B3Q00456173696E675374796C6503043Q0051756164030F3Q00456173696E67446972656374696F6E2Q033Q004F757403043Q0099C117CE03083Q0081CAA86DABA5C3B703043Q00506C6179030A3Q004D6F757365456E74657203073Q00436F2Q6E656374030A3Q004D6F7573654C65617665026Q00084003073Q00466F637573656403093Q00466F6375734C6F7374030D3Q00325F8D8F872CA1F5354086859203083Q00907036E3EBE64ECD03113Q004D6F75736542752Q746F6E31436C69636B03083Q00546F75636854617003053Q004576656E7403043Q0057616974008B032Q00126E3Q00013Q00202E5Q00022Q002000025Q001218000300033Q001218000400044Q005D000200044Q000C5Q000200126E000100013Q00202E0001000100022Q002000035Q001218000400053Q001218000500064Q005D000300054Q000C00013Q000200126E000200013Q00202E0002000200022Q002000045Q001218000500073Q001218000600084Q005D000400064Q000C00023Q000200126E000300013Q00202E0003000300022Q002000055Q001218000600093Q0012180007000A4Q005D000500074Q000C00033Q000200203B00043Q000B00202E00050004000C2Q002000075Q0012180008000D3Q0012180009000E4Q005D000700094Q000C00053Q000200066400063Q000100012Q00163Q00043Q00066400070001000100032Q00163Q00064Q006B8Q00163Q00033Q00066400080002000100032Q00163Q00034Q00163Q00064Q006B8Q006C000900074Q001D0009000100020006080009003300013Q0004543Q003300012Q0062000900014Q005C000900023Q00203B00090002000F0006080009003800013Q0004543Q0038000100203B0009000200102Q0056000900093Q00203B000A000200104Q000B3Q000A2Q0020000C5Q001218000D00113Q001218000E00124Q0017000C000E000200126E000D00133Q00203B000D000D0014001218000E00153Q001218000F00153Q001218001000164Q0017000D001000022Q0022000B000C000D2Q0020000C5Q001218000D00173Q001218000E00184Q0017000C000E000200126E000D00133Q00203B000D000D0014001218000E00193Q001218000F00193Q0012180010001A4Q0017000D001000022Q0022000B000C000D2Q0020000C5Q001218000D001B3Q001218000E001C4Q0017000C000E000200126E000D00133Q00203B000D000D0014001218000E001D3Q001218000F001D3Q0012180010001E4Q0017000D001000022Q0022000B000C000D2Q0020000C5Q001218000D001F3Q001218000E00204Q0017000C000E000200126E000D00133Q00203B000D000D0014001218000E00213Q001218000F00223Q001218001000234Q0017000D001000022Q0022000B000C000D2Q0020000C5Q001218000D00243Q001218000E00254Q0017000C000E000200126E000D00133Q00203B000D000D0014001218000E00263Q001218000F00273Q001218001000284Q0017000D001000022Q0022000B000C000D2Q0020000C5Q001218000D00293Q001218000E002A4Q0017000C000E000200126E000D00133Q00203B000D000D0014001218000E002B3Q001218000F002C3Q0012180010002D4Q0017000D001000022Q0022000B000C000D2Q0020000C5Q001218000D002E3Q001218000E002F4Q0017000C000E000200126E000D00133Q00203B000D000D0014001218000E00303Q001218000F00313Q001218001000324Q0017000D001000022Q0022000B000C000D2Q0020000C5Q001218000D00333Q001218000E00344Q0017000C000E000200126E000D00133Q00203B000D000D0014001218000E00353Q001218000F00353Q001218001000364Q0017000D001000022Q0022000B000C000D2Q0020000C5Q001218000D00373Q001218000E00384Q0017000C000E000200126E000D00133Q00203B000D000D0014001218000E00393Q001218000F00393Q0012180010003A4Q0017000D001000022Q0022000B000C000D2Q0020000C5Q001218000D003B3Q001218000E003C4Q0017000C000E000200126E000D00133Q00203B000D000D0014001218000E003D3Q001218000F003D3Q0012180010003E4Q0017000D001000022Q0022000B000C000D00126E000C003F3Q00203B000C000C004000203B000C000C00414Q000D3Q00092Q0020000E5Q001218000F00423Q001218001000434Q0017000E00100002002012000D000E00442Q0020000E5Q001218000F00453Q001218001000464Q0017000E00100002002012000D000E00472Q0020000E5Q001218000F00483Q001218001000494Q0017000E00100002002012000D000E004A2Q0020000E5Q001218000F004B3Q0012180010004C4Q0017000E00100002002012000D000E004D2Q0020000E5Q001218000F004E3Q0012180010004F4Q0017000E00100002002012000D000E00162Q0020000E5Q001218000F00503Q001218001000514Q0017000E00100002002012000D000E00522Q0020000E5Q001218000F00533Q001218001000544Q0017000E00100002002012000D000E00552Q0020000E5Q001218000F00563Q001218001000574Q0017000E00100002002012000D000E00582Q0020000E5Q001218000F00593Q0012180010005A4Q0017000E00100002002012000D000E005B2Q0020000E5Q001218000F005C3Q0012180010005D4Q0017000E0010000200126E000F005E3Q00203B000F000F005F2Q002000105Q001218001100603Q001218001200614Q005D001000124Q000C000F3Q00022Q002000105Q001218001100633Q001218001200644Q001700100012000200100E000F00620010003014000F0065006600126E001000683Q00203B00100010006700203B00100010006900100E000F00670010003014000F006A006B00100E000F006C000500126E0010005E3Q00203B00100010005F2Q002000115Q0012180012006D3Q0012180013006E4Q005D001100134Q000C00103Q000200126E001100703Q00203B00110011005F001218001200713Q00203B0013000D0072001218001400713Q00203B0015000D00732Q001700110015000200100E0010006F001100126E001100703Q00203B00110011005F001218001200753Q001218001300713Q001218001400753Q001218001500714Q001700110015000200100E00100074001100126E001100773Q00203B00110011005F001218001200753Q001218001300754Q001700110013000200100E00100076001100203B0011000B007900100E0010007800110030140010007A00710030140010007B007C0030140010007D007C00100E0010007E000A00100E0010006C000F00126E0011005E3Q00203B00110011005F2Q002000125Q0012180013007F3Q001218001400804Q005D001200144Q000C00113Q000200126E001200823Q00203B00120012005F001218001300713Q00203B0014000D00812Q001700120014000200100E00110081001200100E0011006C001000126E0012005E3Q00203B00120012005F2Q002000135Q001218001400833Q001218001500844Q005D001300154Q000C00123Q000200203B0013000B008600100E00120085001300301400120087008800100E0012006C001000126E0013005E3Q00203B00130013005F2Q002000145Q001218001500893Q0012180016008A4Q005D001400164Q000C00133Q000200126E001400703Q00203B00140014005F001218001500883Q00203B0016000D008B2Q0005001600163Q00201500160016008C001218001700883Q00203B0018000D008B2Q0005001800183Q00201500180018008C2Q001700140018000200100E0013006F001400126E001400703Q00203B00140014005F001218001500713Q00203B0016000D008B001218001700713Q00203B0018000D008B2Q001700140018000200100E0013007400140030140013008D008800100E0013006C001000126E0014005E3Q00203B00140014005F2Q002000155Q0012180016008E3Q0012180017008F4Q005D001500174Q000C00143Q000200126E001500703Q00203B00150015005F001218001600713Q001218001700903Q001218001800713Q001218001900904Q001700150019000200100E0014006F001500126E001500703Q00203B00150015005F001218001600883Q001218001700913Q001218001800713Q001218001900714Q001700150019000200100E0014007400150030140014008D008800301400140092009300203B0015000B009500100E00140094001500126E001500683Q00203B00150015009600203B00150015009700100E00140096001500301400140098009900100E0014006C001300126E0015005E3Q00203B00150015005F2Q002000165Q0012180017009A3Q0012180018009B4Q005D001600184Q000C00153Q000200126E001600703Q00203B00160016005F001218001700883Q0012180018009C3Q001218001900713Q00203B001A000D009D00201E001A001A009E2Q00170016001A000200100E0015006F001600126E001600703Q00203B00160016005F001218001700713Q001218001800713Q001218001900713Q001218001A009E4Q00170016001A000200100E0015007400160030140015008D00882Q002000165Q0012180017009F3Q001218001800A04Q001700160018000200100E00150092001600203B0016000B009200100E00150094001600126E001600683Q00203B00160016009600203B00160016009700100E00150096001600203B0016000D009D00100E00150098001600126E001600683Q00203B0016001600A100203B0016001600A200100E001500A1001600100E0015006C001300126E0016005E3Q00203B00160016005F2Q002000175Q001218001800A33Q001218001900A44Q005D001700194Q000C00163Q000200126E001700703Q00203B00170017005F001218001800883Q001218001900713Q001218001A00713Q001218001B00A54Q00170017001B000200100E0016006F001700126E001700703Q00203B00170017005F001218001800713Q001218001900713Q001218001A00713Q00203B001B000D009D00201E001B001B00A62Q00170017001B000200100E0016007400170030140016008D00882Q002000175Q001218001800A73Q001218001900A84Q001700170019000200100E00160092001700203B0017000B009500100E00160094001700126E001700683Q00203B00170017009600203B0017001700A900100E00160096001700203B0017000D00AA00100E00160098001700126E001700683Q00203B0017001700A100203B0017001700A200100E001600A10017003014001600AB007C00100E0016006C001300126E0017005E3Q00203B00170017005F2Q002000185Q001218001900AC3Q001218001A00AD4Q005D0018001A4Q000C00173Q000200126E001800703Q00203B00180018005F001218001900883Q001218001A00713Q001218001B00713Q00203B001C000D00AE2Q00170018001C000200100E0017006F001800126E001800703Q00203B00180018005F001218001900713Q001218001A00713Q001218001B00713Q00203B001C000D009D00201E001C001C00AF2Q00170018001C000200100E00170074001800203B0018000B00B000100E0017007800180030140017007A007100100E0017006C001300126E0018005E3Q00203B00180018005F2Q002000195Q001218001A00B13Q001218001B00B24Q005D0019001B4Q000C00183Q000200126E001900823Q00203B00190019005F001218001A00713Q001218001B00B34Q00170019001B000200100E00180081001900100E0018006C001700126E0019005E3Q00203B00190019005F2Q0020001A5Q001218001B00B43Q001218001C00B54Q005D001A001C4Q000C00193Q000200203B001A000B008600100E00190085001A00301400190087008800100E0019006C001700126E001A005E3Q00203B001A001A005F2Q0020001B5Q001218001C00B63Q001218001D00B74Q005D001B001D4Q000C001A3Q000200126E001B00703Q00203B001B001B005F001218001C00883Q001218001D00B83Q001218001E00883Q001218001F00714Q0017001B001F000200100E001A006F001B00126E001B00703Q00203B001B001B005F001218001C00713Q001218001D004D3Q001218001E00713Q001218001F00714Q0017001B001F000200100E001A0074001B003014001A008D00882Q0020001B5Q001218001C00BA3Q001218001D00BB4Q0017001B001D000200100E001A00B9001B00203B001B000B00BD00100E001A00BC001B003014001A009200BE003014001A00BF006600203B001B000B009200100E001A0094001B00126E001B00683Q00203B001B001B009600203B001B001B00A900100E001A0096001B00203B001B000D00AA00100E001A0098001B00126E001B00683Q00203B001B001B00A100203B001B001B00A200100E001A00A1001B00100E001A006C001700126E001B005E3Q00203B001B001B005F2Q0020001C5Q001218001D00C03Q001218001E00C14Q005D001C001E4Q000C001B3Q000200126E001C00703Q00203B001C001C005F001218001D00883Q001218001E00713Q001218001F00713Q001218002000C24Q0017001C0020000200100E001B006F001C00126E001C00703Q00203B001C001C005F001218001D00713Q001218001E00713Q001218001F00713Q00203B0020000D009D00201E0020002000C300201E0020002000C42Q0017001C0020000200100E001B0074001C003014001B008D0088003014001B009200BE00203B001C000B00C500100E001B0094001C00126E001C00683Q00203B001C001C009600203B001C001C00A900100E001B0096001C00203B001C000D00AA002010001C001C008800100E001B0098001C00126E001C00683Q00203B001C001C00A100203B001C001C00A200100E001B00A1001C00100E001B006C001300126E001C005E3Q00203B001C001C005F2Q0020001D5Q001218001E00C63Q001218001F00C74Q005D001D001F4Q000C001C3Q000200126E001D00703Q00203B001D001D005F001218001E00883Q001218001F00713Q001218002000713Q00203B0021000D00C82Q0017001D0021000200100E001C006F001D00126E001D00703Q00203B001D001D005F001218001E00713Q001218001F00713Q001218002000883Q00203B0021000D00C82Q0005002100213Q00201500210021008C00201000210021004D2Q0017001D0021000200100E001C0074001D00203B001D000B00C900100E001C0078001D2Q0020001D5Q001218001E00CA3Q001218001F00CB4Q0017001D001F000200100E001C0092001D00126E001D00133Q00203B001D001D0014001218001E00283Q001218001F00283Q001218002000284Q0017001D0020000200100E001C0094001D00126E001D00683Q00203B001D001D009600203B001D001D00CC00100E001C0096001D00203B001D000D00CD00100E001C0098001D003014001C007A007100100E001C006C001300126E001D005E3Q00203B001D001D005F2Q0020001E5Q001218001F00CE3Q001218002000CF4Q005D001E00204Q000C001D3Q000200126E001E00823Q00203B001E001E005F001218001F00713Q001218002000B34Q0017001E0020000200100E001D0081001E00100E001D006C001C00126E001E005E3Q00203B001E001E005F2Q0020001F5Q001218002000D03Q001218002100D14Q005D001F00214Q000C001E3Q000200126E001F00703Q00203B001F001F005F001218002000883Q001218002100713Q001218002200713Q00203B0023000D00C82Q0017001F0023000200100E001E006F001F00126E001F00703Q00203B001F001F005F001218002000713Q001218002100713Q001218002200883Q00203B0023000D00C82Q0005002300234Q0017001F0023000200100E001E0074001F00203B001F000B00B000100E001E0078001F2Q0020001F5Q001218002000D23Q001218002100D34Q0017001F0021000200100E001E0092001F00203B001F000B009200100E001E0094001F00126E001F00683Q00203B001F001F009600203B001F001F00CC00100E001E0096001F00203B001F000D00CD00100E001E0098001F003014001E007A007100100E001E006C001300126E001F005E3Q00203B001F001F005F2Q002000205Q001218002100D43Q001218002200D54Q005D002000224Q000C001F3Q000200126E002000823Q00203B00200020005F001218002100713Q001218002200B34Q001700200022000200100E001F0081002000100E001F006C001E00126E0020005E3Q00203B00200020005F2Q002000215Q001218002200D63Q001218002300D74Q005D002100234Q000C00203Q000200203B0021000B008600100E00200085002100301400200087008800100E0020006C001E00066400210003000100022Q00163Q001B4Q00163Q000B3Q00126E002200703Q00203B00220022005F001218002300713Q00203B0024000D0072001218002500713Q001218002600714Q001700220026000200100E0010006F002200126E002200703Q00203B00220022005F001218002300753Q001218002400713Q001218002500753Q001218002600714Q001700220026000200100E00100074002200202E0022000100D82Q006C002400103Q00126E002500D93Q00203B00250025005F001218002600DA3Q00126E002700683Q00203B0027002700DB00203B0027002700DC00126E002800683Q00203B0028002800DD00203B0028002800DE2Q00170025002800024Q00263Q00012Q002000275Q001218002800DF3Q001218002900E04Q001700270029000200126E002800703Q00203B00280028005F001218002900713Q00203B002A000D0072001218002B00713Q00203B002C000D00732Q00170028002C00022Q00220026002700282Q001700220026000200202E0023002200E12Q0045002300020001000608000A004C03013Q0004543Q004C0301001218002300713Q00266800230012030100880004543Q0012030100203B0024001E00E200202E0024002400E300066400260004000100032Q00163Q00014Q00163Q001E4Q006B8Q003800240026000100203B0024001E00E400202E0024002400E300066400260005000100042Q00163Q00014Q00163Q001E4Q006B8Q00163Q000B4Q00380024002600010012180023008C3Q000E3100710025030100230004543Q0025030100203B0024001C00E200202E0024002400E300066400260006000100042Q00163Q00014Q00163Q001C4Q006B8Q00163Q000B4Q003800240026000100203B0024001C00E400202E0024002400E300066400260007000100042Q00163Q00014Q00163Q001C4Q006B8Q00163Q000B4Q0038002400260001001218002300883Q00266800230038030100E50004543Q0038030100203B0024001A00E600202E0024002400E300066400260008000100042Q00163Q00014Q00163Q00194Q006B8Q00163Q000B4Q003800240026000100203B0024001A00E700202E0024002400E300066400260009000100042Q00163Q00014Q00163Q00194Q006B8Q00163Q000B4Q00380024002600010004543Q004C030100266800232Q000301008C0004544Q00030100203B0024001400E200202E0024002400E30006640026000A000100042Q00163Q00014Q00163Q00144Q006B8Q00163Q000B4Q003800240026000100203B0024001400E400202E0024002400E30006640026000B000100042Q00163Q00014Q00163Q00144Q006B8Q00163Q000B4Q0038002400260001001218002300E53Q0004544Q00030100126E0023005E3Q00203B00230023005F2Q002000245Q001218002500E83Q001218002600E94Q005D002400264Q000C00233Q00022Q006200246Q006200255Q0006640026000C0001000D2Q00163Q000F4Q00163Q00234Q00163Q00244Q00163Q001C4Q006B8Q00163Q00014Q00163Q00104Q00163Q000D4Q00163Q000B4Q00163Q00214Q00163Q00084Q00163Q00254Q00163Q001A3Q00203B0027001C00EA00202E0027002700E32Q006C002900264Q003800270029000100203B0027001E00EA00202E0027002700E30006640029000D000100042Q00163Q000E4Q00163Q00214Q006B8Q00163Q000B4Q003800270029000100203B0027001400EA00202E0027002700E30006640029000E000100062Q00163Q000F4Q00163Q00234Q00163Q00014Q00163Q00104Q006B8Q00163Q000D4Q003800270029000100203B0027001A00E700202E0027002700E30006640029000F000100022Q00163Q00254Q00163Q00264Q00380027002900010006080009008603013Q0004543Q0086030100203B0027001A00EB00202E0027002700E300066400290010000100012Q00163Q001A4Q003800270029000100203B0027002300EC00202E0027002700ED2Q00450027000200012Q005C002400024Q00073Q00013Q00113Q00023Q0003083Q00746F737472696E6703063Q0055736572496400063Q00126E3Q00014Q002000015Q00203B0001000100022Q00063Q00014Q00538Q00073Q00017Q00083Q00028Q0003333Q00A0696838002EB50CA96D75661575E957AC7864660064FB40AD327D381A3BEC46BA747A315E61E946BA226E271178F55B81792103083Q0023C81D1C4873149A026Q00F03F027Q004003053Q007063612Q6C03053Q0076616C69642Q0100303Q0012183Q00014Q002A000100043Q0026683Q000E000100010004543Q000E00012Q002000056Q001D0005000100022Q006C000100054Q0020000500013Q001218000600023Q001218000700034Q00170005000700022Q006C000600014Q003A0002000500060012183Q00043Q0026683Q0012000100050004543Q001200012Q006200056Q005C000500023Q0026683Q0002000100040004543Q0002000100126E000500063Q00066400063Q000100012Q00163Q00024Q004A0005000200062Q006C000400064Q006C000300053Q0006080003002D00013Q0004543Q002D00010006080004002D00013Q0004543Q002D000100126E000500063Q00066400060001000100022Q006B3Q00024Q00163Q00044Q004A0005000200060006080005002D00013Q0004543Q002D00010006080006002D00013Q0004543Q002D000100203B00070006000700266D0007002B000100080004543Q002B00012Q001C00076Q0062000700014Q005C000700023Q0012183Q00053Q0004543Q000200012Q00073Q00013Q00023Q00023Q0003043Q0067616D65030C3Q00482Q74704765744173796E6300063Q00126E3Q00013Q00202E5Q00022Q002000026Q00063Q00024Q00538Q00073Q00017Q00013Q00030A3Q004A534F4E4465636F646500064Q00207Q00202E5Q00012Q0020000200014Q00063Q00024Q00538Q00073Q00017Q000A3Q00028Q00026Q00F03F027Q004003053Q007063612Q6C03053Q0076616C69642Q01032D3Q0011ABC5CF9E767B56BEC1D6C32A350AABD5DA95622709BED2DAC22D2410F0C7DA9F253200F22QDA94733F1CA68C03073Q005479DFB1BFED4C030A3Q00FD44C6A2365F28E8BF0B03083Q00A1DB36A9C05A3050015B3Q001218000100014Q002A000200063Q00266800010007000100010004543Q00070001001218000200014Q002A000300033Q001218000100023Q000E3100030055000100010004543Q005500012Q002A000600063Q00266800020036000100020004543Q00360001001218000700013Q00266800070011000100020004543Q00110001001218000200033Q0004543Q003600010026680007000D000100010004543Q000D000100126E000800043Q00066400093Q000100012Q00163Q00044Q004A0008000200092Q006C000600094Q006C000500083Q0006080005003400013Q0004543Q003400010006080006003400013Q0004543Q00340001001218000800014Q002A0009000A3Q0026680008001F000100010004543Q001F000100126E000B00043Q000664000C0001000100022Q006B8Q00163Q00064Q004A000B0002000C2Q006C000A000C4Q006C0009000B3Q0006080009003400013Q0004543Q00340001000608000A003400013Q0004543Q0034000100203B000B000A000500266D000B0030000100060004543Q003000012Q001C000B6Q0062000B00014Q005C000B00023Q0004543Q003400010004543Q001F0001001218000700023Q0004543Q000D00010026680002004F000100010004543Q004F0001001218000700013Q000E310002003D000100070004543Q003D0001001218000200023Q0004543Q004F000100266800070039000100010004543Q003900012Q0020000800014Q001D0008000100022Q006C000300084Q0020000800023Q001218000900073Q001218000A00084Q00170008000A00022Q006C00096Q0020000A00023Q001218000B00093Q001218000C000A4Q0017000A000C00022Q006C000B00034Q003A00040008000B001218000700023Q0004543Q00390001000E310003000A000100020004543Q000A00012Q006200076Q005C000700023Q0004543Q000A00010004543Q005A000100266800010002000100020004543Q000200012Q002A000400053Q001218000100033Q0004543Q000200012Q00073Q00013Q00023Q00023Q0003043Q0067616D65030C3Q00482Q74704765744173796E6300063Q00126E3Q00013Q00202E5Q00022Q002000026Q00063Q00024Q00538Q00073Q00017Q00013Q00030A3Q004A534F4E4465636F646500064Q00207Q00202E5Q00012Q0020000200014Q00063Q00024Q00538Q00073Q00017Q00083Q00028Q00026Q00F03F03043Q007461736B03053Q0064656C6179026Q00084003043Q0054657874030A3Q0054657874436F6C6F723303053Q00452Q726F7202183Q001218000200013Q0026680002000B000100020004543Q000B000100126E000300033Q00203B000300030004001218000400053Q00066400053Q000100022Q006B8Q00168Q00380003000500010004543Q0017000100266800020001000100010004543Q000100012Q002000035Q00100E000300064Q002000035Q00064F00040014000100010004543Q001400012Q0020000400013Q00203B00040004000800100E000300070004001218000200023Q0004543Q000100012Q00073Q00013Q00013Q00023Q0003043Q0054657874035Q00084Q00207Q00203B5Q00012Q0020000100013Q0006023Q0007000100010004543Q000700012Q00207Q0030143Q000100022Q00073Q00017Q000B3Q0003063Q0043726561746503093Q0054772Q656E496E666F2Q033Q006E65770200404Q33C33F03103Q00DFB2534E7BCDF2A65E415FD0F1BC421603063Q00BF9DD330251C03063Q00436F6C6F723303073Q0066726F6D524742025Q00804140025Q0080464003043Q00506C617900174Q00207Q00202E5Q00012Q0020000200013Q00126E000300023Q00203B000300030003001218000400044Q00440003000200024Q00043Q00012Q0020000500023Q001218000600053Q001218000700064Q001700050007000200126E000600073Q00203B000600060008001218000700093Q001218000800093Q0012180009000A4Q00170006000900022Q00220004000500062Q00173Q0004000200202E5Q000B2Q00453Q000200012Q00073Q00017Q00083Q0003063Q0043726561746503093Q0054772Q656E496E666F2Q033Q006E6577026Q33C33F03103Q00FD1EF7173DCD10E1123EFC10F813288C03053Q005ABF7F947C03043Q004361726403043Q00506C617900134Q00207Q00202E5Q00012Q0020000200013Q00126E000300023Q00203B000300030003001218000400044Q00440003000200024Q00043Q00012Q0020000500023Q001218000600053Q001218000700064Q00170005000700022Q0020000600033Q00203B0006000600072Q00220004000500062Q00173Q0004000200202E5Q00082Q00453Q000200012Q00073Q00017Q00083Q0003063Q0043726561746503093Q0054772Q656E496E666F2Q033Q006E65770200404Q33C33F03104Q005934D3D906E9375633FBD118E9300B03073Q0086423857B8BE74030C3Q005072696D617279486F76657203043Q00506C617900134Q00207Q00202E5Q00012Q0020000200013Q00126E000300023Q00203B000300030003001218000400044Q00440003000200024Q00043Q00012Q0020000500023Q001218000600053Q001218000700064Q00170005000700022Q0020000600033Q00203B0006000600072Q00220004000500062Q00173Q0004000200202E5Q00082Q00453Q000200012Q00073Q00017Q00083Q0003063Q0043726561746503093Q0054772Q656E496E666F2Q033Q006E6577026Q33C33F03103Q001E300AB01EF92E2032352AB415E4336603083Q00555C5169DB798B4103073Q005072696D61727903043Q00506C617900134Q00207Q00202E5Q00012Q0020000200013Q00126E000300023Q00203B000300030003001218000400044Q00440003000200024Q00043Q00012Q0020000500023Q001218000600053Q001218000700064Q00170005000700022Q0020000600033Q00203B0006000600072Q00220004000500062Q00173Q0004000200202E5Q00082Q00453Q000200012Q00073Q00017Q00083Q0003063Q0043726561746503093Q0054772Q656E496E666F2Q033Q006E6577026Q33C33F03053Q002Q19F8BA2803043Q00D55A769403073Q005072696D61727903043Q00506C617900134Q00207Q00202E5Q00012Q0020000200013Q00126E000300023Q00203B000300030003001218000400044Q00440003000200024Q00043Q00012Q0020000500023Q001218000600053Q001218000700064Q00170005000700022Q0020000600033Q00203B0006000600072Q00220004000500062Q00173Q0004000200202E5Q00082Q00453Q000200012Q00073Q00017Q00083Q0003063Q0043726561746503093Q0054772Q656E496E666F2Q033Q006E6577026Q33C33F03053Q007821B8595F03053Q002D3B4ED43603063Q00426F7264657203043Q00506C617900134Q00207Q00202E5Q00012Q0020000200013Q00126E000300023Q00203B000300030003001218000400044Q00440003000200024Q00043Q00012Q0020000500023Q001218000600053Q001218000700064Q00170005000700022Q0020000600033Q00203B0006000600072Q00220004000500062Q00173Q0004000200202E5Q00082Q00453Q000200012Q00073Q00017Q00083Q0003063Q0043726561746503093Q0054772Q656E496E666F2Q033Q006E6577026Q33C33F030A3Q004C8236035B8822186AD403043Q007718E74E03053Q00452Q726F7203043Q00506C617900134Q00207Q00202E5Q00012Q0020000200013Q00126E000300023Q00203B000300030003001218000400044Q00440003000200024Q00043Q00012Q0020000500023Q001218000600053Q001218000700064Q00170005000700022Q0020000600033Q00203B0006000600072Q00220004000500062Q00173Q0004000200202E5Q00082Q00453Q000200012Q00073Q00017Q00083Q0003063Q0043726561746503093Q0054772Q656E496E666F2Q033Q006E6577026Q33C33F030A3Q00B628BD5EFF4F1D8D3FF603073Q0071E24DC52ABC20030D3Q00546578745365636F6E6461727903043Q00506C617900134Q00207Q00202E5Q00012Q0020000200013Q00126E000300023Q00203B000300030003001218000400044Q00440003000200024Q00043Q00012Q0020000500023Q001218000600053Q001218000700064Q00170005000700022Q0020000600033Q00203B0006000600072Q00220004000500062Q00173Q0004000200202E5Q00082Q00453Q000200012Q00073Q00017Q002C3Q00028Q00026Q001040026Q00084003093Q00436F6D706C6574656403073Q00436F2Q6E65637403043Q005465787403073Q007D0232ABF4A35603083Q003A2E7751C891D025026Q00F03F027Q004003063Q0043726561746503093Q0054772Q656E496E666F2Q033Q006E65770200304Q33D33F03043Q00456E756D030B3Q00456173696E675374796C6503043Q0051756164030F3Q00456173696E67446972656374696F6E03023Q00496E03043Q0041486D8003063Q00EB122117E59E03053Q005544696D3203053Q00576964746803043Q00506C617903103Q004261636B67726F756E64436F6C6F723303073Q0053752Q63652Q7303194Q008929ECBFB824228A39A9ADFD253E8F33A9BAAE303E803CB503073Q00564BEC50CCC9DD03063Q0066BFD3B256A303043Q00DB30DAA103073Q005072696D61727903163Q00CD7F6A48D746E4A47E6E09DE57F0ED63794D9B44E5FD03073Q008084111C29BB2F03053Q00452Q726F72034Q0003123Q007E8BE62C5D82A3284093E63F0E86A3264B9E03043Q004D2EE78303063Q00737472696E6703043Q00677375622Q033Q00F63B4403063Q003BD3486F9CB0030C3Q008C51A449BC4DBF4EBD1AF80E03043Q0020DA34D603093Q00546578744D7574656400AC3Q0012183Q00014Q002A000100023Q0026683Q0072000100020004543Q007200010006080002005700013Q0004543Q00570001001218000300014Q002A000400043Q00266800030011000100030004543Q0011000100203B00050004000400202E00050005000500066400073Q000100022Q006B8Q006B3Q00014Q00380005000700010004543Q00AB00010026680003001C000100010004543Q001C00012Q0062000500014Q0030000500024Q0020000500034Q0020000600043Q001218000700073Q001218000800084Q001700060008000200100E000500060006001218000300093Q002668000300460001000A0004543Q00460001001218000500013Q00266800050023000100090004543Q00230001001218000300033Q0004543Q004600010026680005001F000100010004543Q001F00012Q0020000600053Q00202E00060006000B2Q0020000800063Q00126E0009000C3Q00203B00090009000D001218000A000E3Q00126E000B000F3Q00203B000B000B001000203B000B000B001100126E000C000F3Q00203B000C000C001200203B000C000C00132Q00170009000C00024Q000A3Q00012Q0020000B00043Q001218000C00143Q001218000D00154Q0017000B000D000200126E000C00163Q00203B000C000C000D001218000D00014Q0020000E00073Q00203B000E000E0017001218000F00013Q001218001000014Q0017000C001000022Q0022000A000B000C2Q00170006000A00022Q006C000400063Q00202E0006000400182Q0045000600020001001218000500093Q0004543Q001F000100266800030008000100090004543Q000800012Q0020000500034Q0020000600083Q00203B00060006001A00100E0005001900062Q0020000500094Q0020000600043Q0012180007001B3Q0012180008001C4Q00170006000800022Q0020000700083Q00203B00070007001A2Q00380005000700010012180003000A3Q0004543Q000800010004543Q00AB0001001218000300013Q000E3100010065000100030004543Q006500012Q0020000400034Q0020000500043Q0012180006001D3Q0012180007001E4Q001700050007000200100E0004000600052Q0020000400034Q0020000500083Q00203B00050005001F00100E000400190005001218000300093Q00266800030058000100090004543Q005800012Q0020000400094Q0020000500043Q001218000600203Q001218000700214Q00170005000700022Q0020000600083Q00203B0006000600222Q00380004000600010004543Q00AB00010004543Q005800010004543Q00AB00010026683Q007B000100030004543Q007B00012Q00200003000A4Q006C000400014Q00440003000200022Q006C000200034Q006200036Q00300003000B3Q0012183Q00023Q0026683Q008B000100090004543Q008B000100266800010088000100230004543Q008800012Q0020000300094Q0020000400043Q001218000500243Q001218000600254Q00170004000600022Q0020000500083Q00203B0005000500222Q00380003000500012Q00073Q00014Q0062000300014Q00300003000B3Q0012183Q000A3Q0026683Q009D000100010004543Q009D00012Q00200003000B3Q0006080003009100013Q0004543Q009100012Q00073Q00013Q00126E000300263Q00203B0003000300272Q00200004000C3Q00203B0004000400062Q0020000500043Q001218000600283Q001218000700294Q0017000500070002001218000600234Q00170003000600022Q006C000100033Q0012183Q00093Q000E31000A000200013Q0004543Q000200012Q0020000300034Q0020000400043Q0012180005002A3Q0012180006002B4Q001700040006000200100E0003000600042Q0020000300034Q0020000400083Q00203B00040004002C00100E0003001900040012183Q00033Q0004543Q000200012Q00073Q00013Q00013Q00023Q0003073Q0044657374726F7903043Q004669726500074Q00207Q00202E5Q00012Q00453Q000200012Q00203Q00013Q00202E5Q00022Q00453Q000200012Q00073Q00017Q00073Q00030C3Q00736574636C6970626F617264028Q0003183Q002D3B08311D023D163358057212351D023E0F2A5F0E33143E03053Q003D6152665A03073Q0053752Q63652Q7303073Q009A27B842D30D5E03083Q0069CC4ECB2BA7377E001F3Q00126E3Q00013Q0006083Q001400013Q0004543Q001400010012183Q00023Q0026683Q0004000100020004543Q0004000100126E000100014Q002000026Q00450001000200012Q0020000100014Q0020000200023Q001218000300033Q001218000400044Q00170002000400022Q0020000300033Q00203B0003000300052Q00380001000300010004543Q001E00010004543Q000400010004543Q001E00012Q00203Q00014Q0020000100023Q001218000200063Q001218000300074Q00170001000300022Q002000026Q003A0001000100022Q0020000200033Q00203B0002000200052Q00383Q000200012Q00073Q00017Q00123Q00028Q00026Q00F03F03093Q00436F6D706C6574656403073Q00436F2Q6E65637403063Q0043726561746503093Q0054772Q656E496E666F2Q033Q006E6577026Q33D33F03043Q00456E756D030B3Q00456173696E675374796C6503043Q0051756164030F3Q00456173696E67446972656374696F6E03023Q00496E03043Q0096A3391B03083Q0031C5CA437E7364A703053Q005544696D3203053Q00576964746803043Q00506C6179002F3Q0012183Q00014Q002A000100013Q000E310002000B00013Q0004543Q000B000100203B00020001000300202E00020002000400066400043Q000100022Q006B8Q006B3Q00014Q00380002000400010004543Q002E00010026683Q0002000100010004543Q000200012Q0020000200023Q00202E0002000200052Q0020000400033Q00126E000500063Q00203B000500050007001218000600083Q00126E000700093Q00203B00070007000A00203B00070007000B00126E000800093Q00203B00080008000C00203B00080008000D2Q00170005000800024Q00063Q00012Q0020000700043Q0012180008000E3Q0012180009000F4Q001700070009000200126E000800103Q00203B000800080007001218000900014Q0020000A00053Q00203B000A000A0011001218000B00013Q001218000C00014Q00170008000C00022Q00220006000700082Q00170002000600022Q006C000100023Q00202E0002000100122Q00450002000200010012183Q00023Q0004543Q000200012Q00073Q00013Q00013Q00033Q00028Q0003073Q0044657374726F7903043Q0046697265000C3Q0012183Q00013Q0026683Q0001000100010004543Q000100012Q002000015Q00202E0001000100022Q00450001000200012Q0020000100013Q00202E0001000100032Q00450001000200010004543Q000B00010004543Q000100012Q00073Q00019Q002Q0001083Q0006083Q000700013Q0004543Q000700012Q002000015Q00064B00010007000100010004543Q000700012Q0020000100014Q00290001000100012Q00073Q00017Q00013Q00030C3Q0043617074757265466F63757300044Q00207Q00202E5Q00012Q00453Q000200012Q00073Q00017Q000A3Q00028Q00030A3Q00476574506C617965727303053Q007461626C6503043Q00736F727403063Q00697061697273030B3Q004C6F63616C506C6179657203043Q007461736B03053Q00737061776E03043Q0077616974020020AE47E17A743F013B3Q001218000100013Q00266800010001000100010004543Q000100012Q002000025Q0006080002000900013Q0004543Q000900012Q0020000200013Q00064B0002000A000100010004543Q000A00012Q00073Q00014Q0020000200024Q0042000200023Q0006080002003A00013Q0004543Q003A00012Q0020000200033Q00202E0002000200022Q004400020002000200126E000300033Q00203B0003000300042Q006C000400023Q00021B00056Q003800030005000100126E000300054Q006C000400024Q004A0003000200050004543Q003100012Q0020000800033Q00203B00080008000600062300070030000100080004543Q00300001001218000800013Q0026680008001F000100010004543Q001F000100126E000900073Q00203B000900090008000664000A0001000100052Q006B3Q00044Q00168Q006B8Q006B3Q00014Q00163Q00074Q004500090002000100126E000900073Q00203B000900090009001218000A00014Q00450009000200010004543Q003000010004543Q001F00012Q002500065Q0006650003001A000100020004543Q001A000100126E000300073Q00203B0003000300090012180004000A4Q00450003000200010004543Q000A00010004543Q003A00010004543Q000100012Q00073Q00013Q00023Q00023Q0003043Q004E616D6503053Q006C6F776572020C3Q00203B00023Q000100202E0002000200022Q004400020002000200203B00030001000100202E0003000300022Q004400030002000200061F00020009000100030004543Q000900012Q001C00026Q0062000200014Q005C000200024Q00073Q00017Q00113Q00028Q0003083Q007511C5A20CD9510003063Q00B83C65A0CF422Q033Q001A876503043Q00DC51E21C03023Q000B8403063Q00A773B5E29B8A03043Q00C123F45403073Q00A68242873C1B1102FCA9F1D24D62503F03053Q007063612Q6C026Q00F03F03043Q007761726E03103Q007058C1793C044CCF7C3C414E8E733F5603053Q0050242AAE1503043Q004E616D6503013Q003A00353Q0012183Q00014Q002A000100033Q0026683Q0024000100010004543Q002400014Q00043Q00032Q002000055Q001218000600023Q001218000700034Q00170005000700022Q0020000600014Q00220004000500062Q002000055Q001218000600043Q001218000700054Q00170005000700022Q002000065Q001218000700063Q001218000800074Q00170006000800022Q00220004000500062Q002000055Q001218000600083Q001218000700094Q001700050007000200201200040005000A2Q006C000100043Q00126E0004000B3Q00066400053Q000100042Q006B3Q00024Q00163Q00014Q006B3Q00034Q006B3Q00044Q004A0004000200052Q006C000300054Q006C000200043Q0012183Q000C3Q000E31000C000200013Q0004543Q0002000100064B00020034000100010004543Q0034000100126E0004000D4Q002000055Q0012180006000E3Q0012180007000F4Q00170005000700022Q0020000600043Q00203B000600060010001218000700114Q006C000800034Q00380004000800010004543Q003400010004543Q000200012Q00073Q00013Q00013Q00043Q00028Q00030C3Q00496E766F6B65536572766572030A3Q004669726553657276657203043Q004E616D65000F3Q0012183Q00013Q0026683Q0001000100010004543Q000100012Q002000015Q00202E0001000100022Q0020000300014Q00380001000300012Q0020000100023Q00202E0001000100032Q0020000300033Q00203B0003000300042Q00380001000300010004543Q000E00010004543Q000100012Q00073Q00017Q00083Q000100030C3Q00437265617465546F2Q676C6503043Q009722A67103083Q00D4D943CB142QDF25030C3Q009998BAC0BF83BCE4BB81BDD703043Q00B2DAEDC803083Q0095B4EADC2QB4E5DB03043Q00B0D6D586021D4Q002000025Q00201200023Q00012Q0020000200013Q00202E0002000200024Q00043Q00032Q0020000500023Q001218000600033Q001218000700044Q00170005000700022Q00220004000500012Q0020000500023Q001218000600053Q001218000700064Q00170005000700020020120004000500012Q0020000500023Q001218000600073Q001218000700084Q001700050007000200066400063Q000100062Q006B8Q00168Q006B3Q00034Q006B3Q00024Q00163Q00014Q006B3Q00044Q00220004000500062Q00380002000400012Q00073Q00013Q00013Q00213Q00028Q0003063Q004E6F7469667903053Q00C0A4A2D8AD03073Q003994CDD6B4C83603093Q0033ED25386F1BF3327403053Q0016729D555403073Q00E7C41DD058F8BC03073Q00C8A4AB73A43D9603093Q009FE413499AB7FA040503053Q00E3DE946325030C3Q0073465DB6E93F534BF3EB201C03053Q0099532Q329603083Q007963611D67A2425303073Q002D3D16137C13CB027Q004003053Q00E81F0CF20703073Q00D9A1726D956210022Q00F067CEB00C4203043Q007461736B03053Q00737061776E03053Q0026292C70B903063Q00147240581CDC030C3Q007125D7B5FBC4B42700C6B1FC03073Q00DD5161B2D498B003073Q00EEE813EF1FC3F303053Q007AAD877D9B03133Q00C4C901AA7F33CD81CF40BD3622C986CD05BD7103073Q00A8E4A160D95F5103083Q00FFC43C5D3B5ED4DF03063Q0037BBB14E3C4F026Q00104003053Q0004C35EEC4303073Q00E04DAE3F8B26AF01633Q001218000100013Q000E3100010001000100010004543Q000100012Q002000026Q0020000300014Q0022000200033Q0006083Q003C00013Q0004543Q003C0001001218000200013Q00266800020009000100010004543Q000900012Q0020000300023Q00202E0003000300024Q00053Q00042Q0020000600033Q001218000700033Q001218000800044Q00170006000800022Q0020000700033Q001218000800053Q001218000900064Q00170007000900022Q0020000800044Q003A0007000700082Q00220005000600072Q0020000600033Q001218000700073Q001218000800084Q00170006000800022Q0020000700033Q001218000800093Q0012180009000A4Q00170007000900022Q0020000800044Q0020000900033Q001218000A000B3Q001218000B000C4Q00170009000B00022Q003A0007000700092Q00220005000600072Q0020000600033Q0012180007000D3Q0012180008000E4Q001700060008000200201200050006000F2Q0020000600033Q001218000700103Q001218000800114Q00170006000800020020120005000600122Q003800030005000100126E000300133Q00203B00030003001400066400043Q000100022Q006B3Q00054Q006B3Q00014Q00450003000200010004543Q006200010004543Q000900010004543Q006200012Q0020000200023Q00202E0002000200024Q00043Q00042Q0020000500033Q001218000600153Q001218000700164Q00170005000700022Q0020000600044Q0020000700033Q001218000800173Q001218000900184Q00170007000900022Q003A0006000600072Q00220004000500062Q0020000500033Q001218000600193Q0012180007001A4Q00170005000700022Q0020000600044Q0020000700033Q0012180008001B3Q0012180009001C4Q00170007000900022Q003A0006000600072Q00220004000500062Q0020000500033Q0012180006001D3Q0012180007001E4Q001700050007000200201200040005001F2Q0020000500033Q001218000600203Q001218000700214Q00170005000700020020120004000500122Q00380002000400010004543Q006200010004543Q000100012Q00073Q00013Q00018Q00044Q00208Q0020000100014Q00453Q000200012Q00073Q00017Q00223Q00028Q0003043Q0067616D65030A3Q004765745365727669636503113Q00ECA2D5D17AF25C1ADBA3F6C97CE35C09DB03083Q006EBEC7A5BD13913D03063Q004576656E7473030D3Q00507572636861736554726F2Q6C030C3Q00496E766F6B6553657276657203083Q00F3FF72E5A5C6D7EE03063Q00A7BA8B1788EB03043Q004AFAD95D03043Q006D7AD5E82Q033Q00C5F2BB03043Q00508E97C22Q033Q001B972603043Q002C63A61703043Q005FF63A3E03063Q00C41C97495653023Q00606DC1ABC303063Q004E6F7469667903053Q00C70A3D1C8703083Q001693634970E23878030D3Q00957AECF094F852F0F483AC70E603053Q00EDD815829503073Q00A141514BB5C74A03073Q003EE22E2Q3FD0A903203Q00DC1640C3170C395BA50B50801A04395BE1595C8D19042157F11C15802Q1E271F03083Q003E857935E37F6D4F03083Q00340120F4C2A7AD1E03073Q00C270745295B6CE026Q00104003053Q0010A54D1FC503073Q006E59C82C78A082022Q00F067CEB00C4200493Q0012183Q00013Q000E310001000100013Q0004543Q0001000100126E000100023Q00202E0001000100032Q002000035Q001218000400043Q001218000500054Q005D000300054Q000C00013Q000200203B00010001000600203B00010001000700202E0001000100084Q00033Q00032Q002000045Q001218000500093Q0012180006000A4Q00170004000600022Q002000055Q0012180006000B3Q0012180007000C4Q00170005000700022Q00220003000400052Q002000045Q0012180005000D3Q0012180006000E4Q00170004000600022Q002000055Q0012180006000F3Q001218000700104Q00170005000700022Q00220003000400052Q002000045Q001218000500113Q001218000600124Q00170004000600020020120003000400132Q00380001000300012Q0020000100013Q00202E0001000100144Q00033Q00042Q002000045Q001218000500153Q001218000600164Q00170004000600022Q002000055Q001218000600173Q001218000700184Q00170005000700022Q00220003000400052Q002000045Q001218000500193Q0012180006001A4Q00170004000600022Q002000055Q0012180006001B3Q0012180007001C4Q00170005000700022Q00220003000400052Q002000045Q0012180005001D3Q0012180006001E4Q001700040006000200201200030004001F2Q002000045Q001218000500203Q001218000600214Q00170004000600020020120003000400222Q00380001000300010004543Q004800010004543Q000100012Q00073Q00017Q00", GetFEnv(), ...);

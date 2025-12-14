@@ -1,3 +1,5 @@
+game:GetService("Players").LocalPlayer.PlayerGui.Main.MainTradingRequestsFrame.warning.Visible=false
+
 -- Source code by: https://discord.com/invite/zNZ3MrRaxF
 
 local Players = game:GetService("Players")

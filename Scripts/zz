@@ -19366,9 +19366,23 @@ local function main()
 								if typeof(env.getscriptbytecode) == "function" then
 									local decompilerAPI = Apps.LuauDecompiler
 									if decompilerAPI then
-										local s3, res = pcall(decompilerAPI, scriptInstance)
-										if s3 and type(res) == "string" and res ~= "" and not res:lower():match("failed to decompile") then
-											return true, res
+										local sB, bytecode = pcall(env.getscriptbytecode, scriptInstance)
+										if sB and type(bytecode) == "string" then
+											-- Pass options including Deobfuscate
+											local options = {
+												Deobfuscate = SaveGameArgs.Deobfuscate, -- If the decompiler supports it
+												DecompilerMode = "optdec",
+												ReaderFloatPrecision = 7,
+												ShowDebugInformation = false,
+												ShowInstructionLines = false,
+												ShowOperationIndex = false,
+												ShowOperationNames = false,
+												UseTypeInfo = true
+											}
+											local s3, res = pcall(decompilerAPI, bytecode, options)
+											if s3 and type(res) == "string" and res ~= "" and not res:lower():match("failed to decompile") then
+												return true, res
+											end
 										end
 									end
 								end
